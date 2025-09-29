@@ -6,6 +6,11 @@ You may use user input to add interactivity to the program.
 You must design your algorithm in English first, then translate it to Python code.
 Test as you go! Describe in your comments what steps you took to test your code.
 """
+""" My assignment
+-I plan to make a program that take the user input in a 
+suvery format. It will than compare the results with the list of users in the
+database, find the perso with the best matching items and print out the name.
+"""
 file = open("2.4/responses.csv")
 
 tally = 0
@@ -17,23 +22,15 @@ fasport = input("What is your favourite sport to watch?")
 fatunes = input("What is your favourite genre of music?")
 famov = input("What is your favourite movie genre?")
 fafoo = input("What is your favourite place to eat?")
-
+nam = ""
 urlist = [favnum, fapet, fasub, faspay, fasport, fatunes, famov, fafoo]
-
-for line in file:
+bestma = 0
+bestpor = ""
+for x in range(len(urlist)):
     for line in file:
-        if favnum in line.lower(): 
-            tally +=1
-        elif fapet in line.lower(): 
-            tally +=1
-        elif fasub in line.lower(): 
-            tally +=1
-        elif fasport in line.lower(): 
-            tally +=1
-        elif fatunes in line.lower(): 
-            tally +=1
-        elif famov in line.lower(): 
-            tally +=1
-        elif fafoo in line.lower(): 
-            tally +=1
-
+        if urlist[x] in line:
+            tally += 1
+            print("I've added one to the tally")
+            nam = line[1]
+print(nam)
+            
