@@ -14,27 +14,32 @@ database, find the perso with the best matching items and print out the name.
 file = open("2.4/responses.csv")
 
 tally = 0
-favnum = input("What is your favourite number?")
-fapet = input("What is your favourite pet?")
-fasub = input("What is your favourite subject?")
-faspay = input("What is your favourite sport to play?")
-fasport = input("What is your favourite sport to watch?")
-fatunes = input("What is your favourite genre of music?")
-famov = input("What is your favourite movie genre?")
-fafoo = input("What is your favourite place to eat?")
+favnum = input("What is your favourite number?").lower().strip()
+fapet = input("What is your favourite pet?").lower().strip()
+fasub = input("What is your favourite subject?").lower().strip()
+faspay = input("What is your favourite sport to play?").lower().strip()
+fasport = input("What is your favourite sport to watch?").lower().strip()
+fatunes = input("What is your favourite genre of music?").lower().strip()
+famov = input("What is your favourite movie genre?").lower().strip()
+fafoo = input("What is your favourite place to eat?").lower().strip()
 nam = ""
 urlist = [favnum, fapet, fasub, faspay, fasport, fatunes, famov, fafoo]
 bestma = 0
 bestpor = ""
 for x in range(len(urlist)):
     for line in file:
+        theyline = line.split(',')
+        print(str(theyline))
+        tl= list(map(str.lower, theyline))
         if urlist[x] in line:
-            theyline = line.split(',')
             tally += 1
             print("I've added one to the tally")
-        if tally > bestma:
-            bestma = tally
-            bestpor = theyline
-            nam = line[2]
+            if tally > bestma:
+                bestma = tally
+                bestpor = theyline
+                nam = bestpor[1]
 print(nam)
+print(bestma)
+print(bestpor)
+
             
