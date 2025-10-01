@@ -29,8 +29,12 @@ bestpor = ""
 for x in range(len(urlist)):
     for line in file:
         if urlist[x] in line:
+            theyline = line.split(',')
             tally += 1
             print("I've added one to the tally")
-            nam = line[1]
+        if tally > bestma:
+            bestma = tally
+            bestpor = theyline
+            nam = line[2]
 print(nam)
             
