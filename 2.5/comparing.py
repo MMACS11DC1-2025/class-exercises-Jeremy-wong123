@@ -9,7 +9,18 @@ Test as you go! Describe in your comments what steps you took to test your code.
 """ My assignment
 -I plan to make a program that take the user input in a 
 suvery format. It will than compare the results with the list of users in the
-database, find the perso with the best matching items and print out the name.
+database, find the person with the best matching items and print out the name.
+
+1.) I first get the user input and organize it into a list in lowercase and strip uneccessary spacing.
+2.) I than get a for loop of the line and file so the program can sift through all lines in the file
+3.) I than use a for loop for x in range(len(urlist)): so the program can sift through all options of 
+the user input and see which line has a match
+4.) If a match is found between the two lists, 1 is added to the tally
+5.) Than if the tally is greater than the bestmatch or 0 bestmatch will be set to equal tally to continue a " best of the best" system
+6.) It will then set a variable equal to the list of the best similar list
+7.)The tally variable will be set 0 at the start of the for line in file loop to reset the tally each time an option comes out better
+8.) in the end The program will print out the name of your best match
+
 """
 file = open("2.4/responses.csv")
 
@@ -26,20 +37,23 @@ nam = ""
 urlist = [favnum, fapet, fasub, faspay, fasport, fatunes, famov, fafoo]
 bestma = 0
 bestpor = ""
-for x in range(len(urlist)):
-    for line in file:
+for line in file: 
+    tally = 0
+    for x in range(len(urlist)):
         theyline = line.split(',')
-        print(str(theyline))
-        tl= list(map(str.lower, theyline))
-        if urlist[x] in line:
+        tl = list(map(str.lower, theyline))
+        #print(tl)
+        if urlist[x] in tl:
             tally += 1
-            print("I've added one to the tally")
-            if tally > bestma:
-                bestma = tally
-                bestpor = theyline
-                nam = bestpor[1]
-print(nam)
-print(bestma)
-print(bestpor)
+            #print("I've added one to the tally")
+    if tally > bestma:
+        bestma = tally
+        bestpor = tl
+
+nam = bestpor[1]
+                
+print("Your best match is " + str(nam))
+#print(bestma)
+#print(bestpor)
 
             
