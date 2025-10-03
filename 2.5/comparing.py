@@ -37,6 +37,7 @@ nam = ""
 urlist = [favnum, fapet, fasub, faspay, fasport, fatunes, famov, fafoo]
 bestma = 0
 bestpor = ""
+junk = file.readline()
 for line in file: 
     tally = 0
     for x in range(len(urlist)):
