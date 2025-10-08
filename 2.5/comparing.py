@@ -26,10 +26,14 @@ What is your full name? jeremy wong
 what is your favourite number?8
 what is your favourite pet?cat
 what is your favourite subject?math
-what is your favourite sport to play?
+what is your favourite sport to play?football
+what is your favourite movie genre? Adventure
+What is your favourite place to eat?Popeyes
+Your best match is serene lee
+You have a 4/8 similarity.
 """
 file = open("2.4/responses.csv")
-
+urlist = []
 tally = 0
 lq = ['What is your favourite number?', 'What is your favourite pet?', 'What is your favourite subject?', 'What is your favourite sport to play?', 'What is your favourite sport to watch?', 'What is your favourite genre of music?', 'What is your favourite movie genre?', 'What is your favourite place to eat?']
 urlist = []
@@ -43,8 +47,8 @@ namer = input('what is your full name? ').lower().strip()
 #famov = input("What is your favourite movie genre?").lower().strip()
 #fafoo = input("What is your favourite place to eat?").lower().strip()
 for ques in lq:
-    ques = input(lq)
-    urlist.append(ques)
+    quest = input(ques).lower().strip()
+    urlist.append(quest)
 bestma = 0
 bestpor = ""
 junk = file.readline()
@@ -66,7 +70,7 @@ for line in file:
 
 nam = bestpor[1]
                 
-print("Your best match is " + str(nam) + " You two have a " + bestma + "/8 similarity.")
+print("Your best match is " + str(nam) + ".\n You two have a " + str(bestma) + "/8 similarity.")
 #print(bestma)
 #print(bestpor)
 
