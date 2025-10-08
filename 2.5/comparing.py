@@ -10,6 +10,7 @@ Test as you go! Describe in your comments what steps you took to test your code.
 -I plan to make a program that take the user input in a 
 suvery format. It will than compare the results with the list of users in the
 database, find the person with the best matching items and print out the name.
+
 1.)I first run a for loop to ask the user a bunch of questions
 2.) I ask for the users name and I will omit the user if he/she is in the database
 3.)I get a list of the users input
@@ -22,7 +23,7 @@ the user input and see which line has a match
 9.)The tally variable will be set 0 at the start of the for line in file loop to reset the tally each time an option comes out better
 10.) in the end The program will print out the name of your best match
 
-Code showcase:
+testcase:
 What is your full name? jeremy wong
 what is your favourite number?8
 what is your favourite pet?cat
@@ -63,7 +64,7 @@ for line in file:
 
 nam = bestpor[1]
                 
-print("Your best match is " + str(nam) + ".\n You two have a " + str(bestma) + "/8 similarity.")
+print("Your best match is " + str(nam) + ".\nYou two have a " + str(bestma) + "/8 similarity.")
 #print(bestma)
 #print(bestpor)
 
