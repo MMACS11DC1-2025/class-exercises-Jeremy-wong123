@@ -10,16 +10,17 @@ Test as you go! Describe in your comments what steps you took to test your code.
 -I plan to make a program that take the user input in a 
 suvery format. It will than compare the results with the list of users in the
 database, find the person with the best matching items and print out the name.
-
-1.) I first get the user input and organize it into a list in lowercase and strip uneccessary spacing.
-2.) I than get a for loop of the line and file so the program can sift through all lines in the file
-3.) I than use a for loop for x in range(len(urlist)): so the program can sift through all options of 
+1.)I first run a for loop to ask the user a bunch of questions
+2.) I ask for the users name and I will omit the user if he/she is in the database
+3.)I get a list of the users input
+4.) I than get a for loop of the line and file so the program can sift through all lines in the file
+5.) I than use a for loop for x in range(len(urlist)): so the program can sift through all options of 
 the user input and see which line has a match
-4.) If a match is found between the two lists, 1 is added to the tally
-5.) Than if the tally is greater than the bestmatch or 0 bestmatch will be set to equal tally to continue a " best of the best" system
-6.) It will then set a variable equal to the list of the best similar list
-7.)The tally variable will be set 0 at the start of the for line in file loop to reset the tally each time an option comes out better
-8.) in the end The program will print out the name of your best match
+6.) If a match is found between the two lists, 1 is added to the tally
+7.) Than if the tally is greater than the bestmatch or 0 bestmatch will be set to equal tally to continue a " best of the best" system
+8.) It will then set a variable equal to the list of the best similar list
+9.)The tally variable will be set 0 at the start of the for line in file loop to reset the tally each time an option comes out better
+10.) in the end The program will print out the name of your best match
 
 Code showcase:
 What is your full name? jeremy wong
@@ -38,14 +39,6 @@ tally = 0
 lq = ['What is your favourite number?', 'What is your favourite pet?', 'What is your favourite subject?', 'What is your favourite sport to play?', 'What is your favourite sport to watch?', 'What is your favourite genre of music?', 'What is your favourite movie genre?', 'What is your favourite place to eat?']
 urlist = []
 namer = input('what is your full name? ').lower().strip() 
-#favnum = input("What is your favourite number?").lower().strip()
-#fapet = input("What is your favourite pet?").lower().strip()
-#fasub = input("What is your favourite subject?").lower().strip()
-#faspay = input("What is your favourite sport to play?").lower().strip()
-#fasport = input("What is your favourite sport to watch?").lower().strip()
-#fatunes = input("What is your favourite genre of music?").lower().strip()
-#famov = input("What is your favourite movie genre?").lower().strip()
-#fafoo = input("What is your favourite place to eat?").lower().strip()
 for ques in lq:
     quest = input(ques).lower().strip()
     urlist.append(quest)
