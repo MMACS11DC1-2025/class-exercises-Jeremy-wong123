@@ -31,17 +31,20 @@ what is your favourite sport to play?
 file = open("2.4/responses.csv")
 
 tally = 0
-namer = input('what is your full name? ').lower() 
-favnum = input("What is your favourite number?").lower().strip()
-fapet = input("What is your favourite pet?").lower().strip()
-fasub = input("What is your favourite subject?").lower().strip()
-faspay = input("What is your favourite sport to play?").lower().strip()
-fasport = input("What is your favourite sport to watch?").lower().strip()
-fatunes = input("What is your favourite genre of music?").lower().strip()
-famov = input("What is your favourite movie genre?").lower().strip()
-fafoo = input("What is your favourite place to eat?").lower().strip()
-nam = ""
-urlist = [favnum, fapet, fasub, faspay, fasport, fatunes, famov, fafoo]
+lq = ['What is your favourite number?', 'What is your favourite pet?', 'What is your favourite subject?', 'What is your favourite sport to play?', 'What is your favourite sport to watch?', 'What is your favourite genre of music?', 'What is your favourite movie genre?', 'What is your favourite place to eat?']
+urlist = []
+namer = input('what is your full name? ').lower().strip() 
+#favnum = input("What is your favourite number?").lower().strip()
+#fapet = input("What is your favourite pet?").lower().strip()
+#fasub = input("What is your favourite subject?").lower().strip()
+#faspay = input("What is your favourite sport to play?").lower().strip()
+#fasport = input("What is your favourite sport to watch?").lower().strip()
+#fatunes = input("What is your favourite genre of music?").lower().strip()
+#famov = input("What is your favourite movie genre?").lower().strip()
+#fafoo = input("What is your favourite place to eat?").lower().strip()
+for ques in lq:
+    ques = input(lq)
+    urlist.append(ques)
 bestma = 0
 bestpor = ""
 junk = file.readline()
@@ -63,7 +66,7 @@ for line in file:
 
 nam = bestpor[1]
                 
-print("Your best match is " + str(nam))
+print("Your best match is " + str(nam) + " You two have a " + bestma + "/8 similarity.")
 #print(bestma)
 #print(bestpor)
 
