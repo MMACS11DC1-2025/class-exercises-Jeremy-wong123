@@ -21,10 +21,17 @@ the user input and see which line has a match
 7.)The tally variable will be set 0 at the start of the for line in file loop to reset the tally each time an option comes out better
 8.) in the end The program will print out the name of your best match
 
+Code showcase:
+What is your full name? jeremy wong
+what is your favourite number?8
+what is your favourite pet?cat
+what is your favourite subject?math
+what is your favourite sport to play?
 """
 file = open("2.4/responses.csv")
 
 tally = 0
+namer = input('what is your full name? ').lower() 
 favnum = input("What is your favourite number?").lower().strip()
 fapet = input("What is your favourite pet?").lower().strip()
 fasub = input("What is your favourite subject?").lower().strip()
@@ -41,15 +48,18 @@ junk = file.readline()
 for line in file: 
     tally = 0
     for x in range(len(urlist)):
-        theyline = line.split(',')
-        tl = list(map(str.lower, theyline))
+        theyline = line.lower().split(',')
         #print(tl)
-        if urlist[x] in tl:
+        if namer in theyline:
+            #print('your name is in the database')
+            #exits the if ad continues the for loop skipping the line
+            continue
+        if urlist[x] in theyline:
             tally += 1
             #print("I've added one to the tally")
     if tally > bestma:
         bestma = tally
-        bestpor = tl
+        bestpor = theyline
 
 nam = bestpor[1]
                 
