@@ -9,7 +9,7 @@ Test as you go! Describe in your comments what steps you took to test your code.
 """ My assignment
 -I plan to make a program that take the user input in a 
 suvery format. It will than compare the results with the list of users in the
-database, find the person with the best matching items and print out the name.
+database, find the top 3 people with the most matching results with the user
 
 
 1.) I ask for the users name and I will omit the user if he/she is in the database
@@ -33,6 +33,8 @@ what is your favourite sport to watch?football
 what is your favourite movie genre? Adventure
 What is your favourite place to eat?Bubble waffle 
 Your best match is serene lee
+Your second best match is 
+Your third best match is
 You have a 4/8 similarity.
 """
 file = open("2.4/responses.csv")
@@ -57,7 +59,7 @@ for line in file:
     #initializes the tally to zero before checking for similarities between the two lists
     for x in range(len(userlist)):
         #creates a variable to store a list of a person's qualities in the database
-        personlist = line.lower().split(',')
+        personlist = line.lower().strip('123456789').split(',')
         #checks if the user's name is in the database
         if namer in personlist:
             #exits the if ad continues the for loop skipping the line
@@ -71,7 +73,17 @@ for line in file:
         #bestmatch score is set to equal tally, this creates a 'best of the best'
         #system where the person with the greatest tally is selected
         bestmatch = tally
-        bestperson = theyline
+        bestperson = personlist
+    elif tally <= bestmatch:
+        secondbestmatch = tally
+        secondbestperson = personlist
+        secondbestmatchscore = tally
+        print('the second best match is ' + secondbestperson)
+    elif tally <= secondbestmatchscore:
+        thirdbestmatch = tally
+        thirdbestperson = personlist
+        print('the third best match is ' + thirdbestperson)
+        
 
 nam = bestperson[1]
                 
