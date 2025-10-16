@@ -11,17 +11,17 @@ Test as you go! Describe in your comments what steps you took to test your code.
 suvery format. It will than compare the results with the list of users in the
 database, find the person with the best matching items and print out the name.
 
-1.)I first run a for loop to ask the user a bunch of questions
-2.) I ask for the users name and I will omit the user if he/she is in the database
-3.)I get a list of the users input
-4.) I than get a for loop of the line and file so the program can sift through all lines in the file
-5.) I than use a for loop for x in range(len(urlist)): so the program can sift through all options of 
+
+1.) I ask for the users name and I will omit the user if he/she is in the database
+2.) I than ask the user a survey and put their results on a list
+3.) I than get a for loop of the line and file so the program can sift through all lines in the file
+4.) I than use a for loop for x in range(len(urlist)): so the program can sift through all options of 
 the user input and see which line has a match
-6.) If a match is found between the two lists, 1 is added to the tally
-7.) Than if the tally is greater than the bestmatch or 0 bestmatch will be set to equal tally to continue a " best of the best" system
-8.) It will then set a variable equal to the list of the best similar list
-9.)The tally variable will be set 0 at the start of the for line in file loop to reset the tally each time an option comes out better
-10.) in the end The program will print out the name of your best match
+5.) If a match is found between the two lists, 1 is added to the tally
+6.) Than if the tally is greater than the bestmatch or 0 bestmatch will be set to equal tally to continue a " best of the best" system
+7.) It will then set a variable equal to the list of the best similar list
+8.)The tally variable will be set 0 at the start of the for line in file loop to reset the tally each time an option comes out better
+9.) in the end The program will print out the name of your best match and the ammount of similarities you two have
 
 testcase:
 What is your full name? jeremy wong
@@ -29,43 +29,53 @@ what is your favourite number?8
 what is your favourite pet?cat
 what is your favourite subject?math
 what is your favourite sport to play?football
+what is your favourite sport to watch?football
 what is your favourite movie genre? Adventure
-What is your favourite place to eat?Popeyes
+What is your favourite place to eat?Bubble waffle 
 Your best match is serene lee
 You have a 4/8 similarity.
 """
 file = open("2.4/responses.csv")
-urlist = []
+userlist = []
 tally = 0
-lq = ['What is your favourite number?', 'What is your favourite pet?', 'What is your favourite subject?', 'What is your favourite sport to play?', 'What is your favourite sport to watch?', 'What is your favourite genre of music?', 'What is your favourite movie genre?', 'What is your favourite place to eat?']
+#creates a list of questions for a survey
+survey = ['What is your favourite number?', 'What is your favourite pet?', 'What is your favourite subject?', 'What is your favourite sport to play?', 'What is your favourite sport to watch?', 'What is your favourite genre of music?', 'What is your favourite movie genre?', 'What is your favourite place to eat?']
 urlist = []
-namer = input('what is your full name? ').lower().strip() 
-for ques in lq:
-    quest = input(ques).lower().strip()
-    urlist.append(quest)
-bestma = 0
-bestpor = ""
+#receives the name of the user it is important that the program doesn't match the user with itself if the user is in the database
+name = input('what is your full name? ').lower().strip() 
+#Asks the questions in the for loop individually and records the users response into a list 
+for quesion in survey:
+    question = input(quesion).lower().strip()
+    userlist.append(question)
+#sets the value for variables of the bestperson and bestmatchscore
+bestmatchscore = 0
+bestperson = ""
+#Discards the first line in the database
 junk = file.readline()
 for line in file: 
     tally = 0
-    for x in range(len(urlist)):
-        theyline = line.lower().split(',')
-        #print(tl)
-        if namer in theyline:
-            #print('your name is in the database')
+    #initializes the tally to zero before checking for similarities between the two lists
+    for x in range(len(userlist)):
+        #creates a variable to store a list of a person's qualities in the database
+        personlist = line.lower().split(',')
+        #checks if the user's name is in the database
+        if namer in personlist:
             #exits the if ad continues the for loop skipping the line
             continue
-        if urlist[x] in theyline:
+        if urlist[x] in personlist:
+            #compares the two list of traits between the user and theyline
             tally += 1
-            #print("I've added one to the tally")
-    if tally > bestma:
-        bestma = tally
-        bestpor = theyline
+            #for each similarity between the two one is added to the tally
+    if tally > bestmatchscore:
+        #after comparison is made if the tally is greater than bestmatchscore, 
+        #bestmatch score is set to equal tally, this creates a 'best of the best'
+        #system where the person with the greatest tally is selected
+        bestmatch = tally
+        bestperson = theyline
 
-nam = bestpor[1]
+nam = bestperson[1]
                 
-print("Your best match is " + str(nam) + ".\nYou two have a " + str(bestma) + "/8 similarity.")
-#print(bestma)
-#print(bestpor)
+print("Your best match is " + str(nam) + ".\nYou two have a " + str(bestmatchscore) + "/8 similarity.")
+
 
             
