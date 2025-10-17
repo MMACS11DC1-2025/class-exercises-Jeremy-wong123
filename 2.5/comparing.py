@@ -58,31 +58,29 @@ third = ''
 rank = []
 #Discards the first line in the database
 junk = file.readline()
-for i in range(3):
-    bestmatchscore = 0
-    for line in file: 
-        tally = 0
-        #initializes the tally to zero before checking for similarities between the two lists
-        for x in range(len(urlist)):
-            #creates a variable to store a list of a person's qualities in the database
-            personlist = line.lower().split(',')
-            #checks if the user's name is in the database
-            if name in personlist:
-                #exits the if ad continues the for loop skipping the line
-                continue
-            if urlist[x] in personlist:
-                #compares the two list of traits between the user and theyline
-                tally += 1
-                #for each similarity between the two one is added to the tally
-        if tally > bestmatchscore:
-            #after comparison is made if the tally is greater than bestmatchscore, 
-            #bestmatch score is set to equal tally, this creates a 'best of the best'
-            #system where the person with the greatest tally is selected
-            bestmatchscore = tally
-            bestperson = personlist[1]
-    rank.append(bestperson)
-
+lister = []
+bestmatchscore = 0
+for line in file: 
+    tally = 0
+    #initializes the tally to zero before checking for similarities between the two lists
+    for x in range(len(urlist)):
+        #creates a variable to store a list of a person's qualities in the database
+        personlist = line.lower().split(',')
+        #checks if the user's name is in the database
+        if name in personlist:
+            #exits the if ad continues the for loop skipping the line
+            continue
+        if urlist[x] in personlist:
+            #compares the two list of traits between the user and theyline
+            tally += 1
+            #for each similarity between the two one is added to the tally
+    rank.append(tally)
+    lister.append(personlist[1])
 print(str(rank))
+for i in rank:
+    if i > bestmatchscore:
+        bestmatchscore = i
+
 #print("Your best match is " + str(nam) + ".\nYou two have a " + str(bestmatchscore) + "/8 similarity.")
 
 
