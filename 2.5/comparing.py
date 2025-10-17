@@ -48,7 +48,7 @@ name = input('what is your full name? ').lower().strip()
 #Asks the questions in the for loop individually and records the users response into a list 
 for quesion in survey:
     question = input(quesion).lower().strip()
-    userlist.append(question)
+    urlist.append(question)
 #sets the value for variables of the bestperson and bestmatchscore
 bestmatchscore = 0
 bestperson = ""
@@ -57,11 +57,11 @@ junk = file.readline()
 for line in file: 
     tally = 0
     #initializes the tally to zero before checking for similarities between the two lists
-    for x in range(len(userlist)):
+    for x in range(len(urlist)):
         #creates a variable to store a list of a person's qualities in the database
-        personlist = line.lower().strip('123456789').split(',')
+        personlist = line.lower().split(',')
         #checks if the user's name is in the database
-        if namer in personlist:
+        if name in personlist:
             #exits the if ad continues the for loop skipping the line
             continue
         if urlist[x] in personlist:
@@ -72,22 +72,19 @@ for line in file:
         #after comparison is made if the tally is greater than bestmatchscore, 
         #bestmatch score is set to equal tally, this creates a 'best of the best'
         #system where the person with the greatest tally is selected
-        bestmatch = tally
+        bestmatchscore = tally
         bestperson = personlist
-    elif tally <= bestmatch:
-        secondbestmatch = tally
+    if tally <= bestmatchscore:
+        secondbestscore = tally
         secondbestperson = personlist
-        secondbestmatchscore = tally
-        print('the second best match is ' + secondbestperson)
-    elif tally <= secondbestmatchscore:
-        thirdbestmatch = tally
+    if tally <= secondbestscore:
         thirdbestperson = personlist
-        print('the third best match is ' + thirdbestperson)
-        
-
 nam = bestperson[1]
-                
-print("Your best match is " + str(nam) + ".\nYou two have a " + str(bestmatchscore) + "/8 similarity.")
+
+print(str(nam))
+print(str(secondbestperson[1]))
+print(str(thirdbestperson[1]))
+#print("Your best match is " + str(nam) + ".\nYou two have a " + str(bestmatchscore) + "/8 similarity.")
 
 
             
