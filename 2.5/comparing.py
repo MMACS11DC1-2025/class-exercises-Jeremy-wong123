@@ -80,7 +80,7 @@ print(str(rank))
 for i in rank:
     if i > bestmatchscore:
         bestmatchscore = i
-
+#YES YES
 #print("Your best match is " + str(nam) + ".\nYou two have a " + str(bestmatchscore) + "/8 similarity.")
 
 
