@@ -51,15 +51,14 @@ for quesion in survey:
     urlist.append(question)
 #sets the value for variables of the bestperson and bestmatchscore
 bestmatchscore = 0
-bestperson = ""
 first = ''
 second = ''
 third = ''
 rank = []
+listofnames = []
+best = []
 #Discards the first line in the database
 junk = file.readline()
-lister = []
-bestmatchscore = 0
 for line in file: 
     tally = 0
     #initializes the tally to zero before checking for similarities between the two lists
@@ -75,12 +74,16 @@ for line in file:
             tally += 1
             #for each similarity between the two one is added to the tally
     rank.append(tally)
-    lister.append(personlist[1])
+    listofnames.append(personlist[1])
 print(str(rank))
+score = -1
 for i in rank:
+    score += 1
     if i > bestmatchscore:
         bestmatchscore = i
-#YES YES
+first = listofnames[score]
+best.append(first)
+print(str(best))
 #print("Your best match is " + str(nam) + ".\nYou two have a " + str(bestmatchscore) + "/8 similarity.")
 
 
