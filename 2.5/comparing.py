@@ -16,6 +16,8 @@ most similarities to the results of the survey.
 4.) I put in all those scores in a list. I run a nested for loop 3 times with a for loop to find the hghest value, each time it runs the highest value
 is subtracted from the origional list so a new highest value will come, each of these highest values is put into a list generating a list of 
 the top 3 names.
+5.) As an output I use a for loop to print out each individual name along with a unique comment based on 
+the ammount of similarities you to have
 
 ex.) What is your name? Jeremy wong
 What is your favourite number?8
@@ -27,8 +29,11 @@ What is your favourite sport?Football
 'What is your favourite movie genre?Adventure
 'What is your favourite place to eat?'bubble waffle
 Your first best match is serene lee
+Wow you have alot in common with them!
 Your second best match is jayden wong
+We all have our differences
 Your third best match is gabe armour
+We all have our differences
 """
 file = open("2.4/responses.csv")
 #Opens the database file once
@@ -127,12 +132,12 @@ for a in range(3):
 #print(str(best))
 #print(str(rankscore))
 place = ['first', 'second', 'third']
-for b in range(place):
-    print('Your' + place[0] + ' best match is ' + str(best[b]))
-    if best[0] > 4:
+for b in range(len(rankscore)):
+    print('Your ' + place[b] + ' best match is ' + str(best[b]))
+    if rankscore[b] >= 4:
         print('Wow, you have alot in common with them!')
-    elif best[0] < 4 and best[0] >= 2:
+    elif rankscore[b] < 4 and rankscore[b] >= 2:
         print('We all have our differences.')
     else:
-    print('Wow, your truly unique!')
+        print('Wow, your truly unique!')
 
