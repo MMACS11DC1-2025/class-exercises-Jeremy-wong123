@@ -7,35 +7,28 @@ You must design your algorithm in English first, then translate it to Python cod
 Test as you go! Describe in your comments what steps you took to test your code.
 """
 """ My assignment
--I plan to make a program that take the user input in a 
-suvery format. It will than compare the results with the list of users in the
-database, find the top 3 people with the most matching results with the user
+I plan to make a program that finds that asks the user a survey, and from that the program will find the top 3 names with the 
+most similarities to the results of the survey.
 
+1.) I create a bunch of temporate variables and empty lists to house data like, user response, survey, names, rankings, tallys, placement and scores.
+2.)I then use a for loop to dispense questions in the list one by one and puttig the users response into an empty list
+3.) Now the program will use a nested for loop to check each indidual line/person and give them a scoreon how many similarities they have
+4.) I put in all those scores in a list. I run a nested for loop 3 times with a for loop to find the hghest value, each time it runs the highest value
+is subtracted from the origional list so a new highest value will come, each of these highest values is put into a list generating a list of 
+the top 3 names.
 
-1.) I ask for the users name and I will omit the user if he/she is in the database
-2.) I than ask the user a survey and put their results on a list
-3.) I than get a for loop of the line and file so the program can sift through all lines in the file
-4.) I than use a for loop for x in range(len(urlist)): so the program can sift through all options of 
-the user input and see which line has a match
-5.) If a match is found between the two lists, 1 is added to the tally
-6.) Than if the tally is greater than the bestmatch or 0 bestmatch will be set to equal tally to continue a " best of the best" system
-7.) It will then set a variable equal to the list of the best similar list
-8.)The tally variable will be set 0 at the start of the for line in file loop to reset the tally each time an option comes out better
-9.) in the end The program will print out the name of your best match and the ammount of similarities you two have
-
-testcase:
-What is your full name? jeremy wong
-what is your favourite number?8
-what is your favourite pet?cat
-what is your favourite subject?math
-what is your favourite sport to play?football
-what is your favourite sport to watch?football
-what is your favourite movie genre? Adventure
-What is your favourite place to eat?Bubble waffle 
-Your best match is serene lee
-Your second best match is 
-Your third best match is
-You have a 4/8 similarity.
+ex.) What is your name? Jeremy wong
+What is your favourite number?8
+What is your favourite pet?cat
+What is your favourite subject?math
+What is your favourite sport?Football
+'What is your favourite sport to watch?Football
+'What is your favourite genre of music?K-pop
+'What is your favourite movie genre?Adventure
+'What is your favourite place to eat?'bubble waffle
+Your first best match is serene lee
+Your second best match is jayden wong
+Your third best match is gabe armour
 """
 file = open("2.4/responses.csv")
 #Opens the database file once
@@ -133,9 +126,13 @@ for a in range(3):
     #eg ['serene lee', 'jayden wong', 'gabe armour']
 #print(str(best))
 #print(str(rankscore))
-print('Your first best match is ' + str(best[0]))
-print('Their score is ' + str(rankscore[0]) + '/8')
-print('Your first best match is ' + str(best[1]))
-print('Their score is ' + str(rankscore[1]) + '/8')
-print('Your first best match is ' + str(best[2]))
-print('Their score is ' + str(rankscore[2]) + '/8')
+place = ['first', 'second', 'third']
+for b in range(place):
+    print('Your' + place[0] + ' best match is ' + str(best[b]))
+    if best[0] > 4:
+        print('Wow, you have alot in common with them!')
+    elif best[0] < 4 and best[0] >= 2:
+        print('We all have our differences.')
+    else:
+    print('Wow, your truly unique!')
+
