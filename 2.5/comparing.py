@@ -8,7 +8,8 @@ Test as you go! Describe in your comments what steps you took to test your code.
 """
 """ My assignment
 I plan to make a program that finds that asks the user a survey, and from that the program will find the top 3 names with the 
-most similarities to the results of the survey.
+most similarities to the results of the survey it will display the results along with a unique comment based on the score of each individual
+person.
 
 1.) I create a bunch of temporate variables and empty lists to house data like, user response, survey, names, rankings, tallys, placement and scores.
 2.)I then use a for loop to dispense questions in the list one by one and puttig the users response into an empty list
@@ -55,7 +56,7 @@ placementofnum = 0
 rankscore = []
 #empty list to store the score of the top 3 most similar names
 name = input('what is your full name? ').lower().strip() 
-#gets the name of the user and stores it in a variable
+#gets the name of the user and stores it in a variable this is seperate from the user survey results
 for quesion in survey:
     #This for loop will repeatedly ask the questions in the survey 
     # variable one at a time
@@ -132,6 +133,14 @@ for a in range(3):
 #print(str(best))
 #print(str(rankscore))
 place = ['first', 'second', 'third']
+#temporate list to hold words
+#I didn't want to write 9 if statements
+#I used a for loop that will run for the ammount of values in rankscore list
+#since it will run 3 times, Your    best match is   . is being written 3 times
+#each time the rank is different.
+#I also used if statements to check each individual score if it is greater 
+#or equal to 4 less than 4 and greater or equal to 2 based on those conditions, the program
+#will dispense a different response for each of the 3 names
 for b in range(len(rankscore)):
     print('Your ' + place[b] + ' best match is ' + str(best[b]))
     if rankscore[b] >= 4:
