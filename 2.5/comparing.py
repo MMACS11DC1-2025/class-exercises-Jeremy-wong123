@@ -20,15 +20,16 @@ the top 3 names.
 5.) As an output I use a for loop to print out each individual name along with a unique comment based on 
 the ammount of similarities you to have
 
-ex.) What is your name? Jeremy wong
+ex.)
+What is your name?jeremy wong
 What is your favourite number?8
 What is your favourite pet?cat
 What is your favourite subject?math
-What is your favourite sport?Football
-'What is your favourite sport to watch?Football
-'What is your favourite genre of music?K-pop
-'What is your favourite movie genre?Adventure
-'What is your favourite place to eat?'bubble waffle
+What is your favourite sport?football
+What is your favourite sport to watch?football
+What is your favourite genre of music?k-pop
+What is your favourite movie genre?adventure
+What is your favourite place to eat?bubble waffle
 Your first best match is serene lee
 Wow you have alot in common with them!
 Your second best match is jayden wong
@@ -55,7 +56,7 @@ placementofnum = 0
 #Variable to store the current placement number of the best winner 
 rankscore = []
 #empty list to store the score of the top 3 most similar names
-name = input('what is your full name? ').lower().strip() 
+name = input('What is your full name?').lower().strip() 
 #gets the name of the user and stores it in a variable this is seperate from the user survey results
 for quesion in survey:
     #This for loop will repeatedly ask the questions in the survey 
