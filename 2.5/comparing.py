@@ -7,7 +7,7 @@ You must design your algorithm in English first, then translate it to Python cod
 Test as you go! Describe in your comments what steps you took to test your code.
 """
 """ My assignment
-I plan to make a program that asks the user a survey, and based on the results, the program will find the top 3 names with the 
+    I plan to make a program that asks the user a survey, and based on the results, the program will find the top 3 names with the 
 most similarities to the results of the survey,
 it will then display the results along with a unique comment based 
 on the score of each individual person.
@@ -31,22 +31,48 @@ and base my responses off that
 based on the score of similarity between each person in and you the program
 will use if statements to display a different comment for each result
 
-ex.)
-What is your name?jeremy wong
+    ex.)
+What is your full name?jeremy wong
 What is your favourite number?8
 What is your favourite pet?cat
 What is your favourite subject?math
-What is your favourite sport?football
+What is your favourite sport to play?football
 What is your favourite sport to watch?football
 What is your favourite genre of music?k-pop
 What is your favourite movie genre?adventure
 What is your favourite place to eat?bubble waffle
+
+
+
 Your first best match is serene lee
-Wow you have alot in common with them!
+With a score of 4/8!
+Wow, you have alot in common with them!
+
 Your second best match is jayden wong
-We all have our differences
+With a score of 3/8!
+We all have our differences.
+
 Your third best match is gabe armour
-We all have our differences
+With a score of 3/8!
+We all have our differences.
+
+    Possible errors:
+Because in the origional database each person is listed by a number 
+when entering your favourite number the program will count the 
+list number of the person a similarity trait if it matches 
+with your favourite number since the nested for loop checks each
+individual value in the userlist with the personlist and since the 
+occurance of the number is at the start of the list, the for loop will
+count it as a similarity. 
+
+    EX: 
+userlist = [8, cat, math, football, football, k-pop, adventure, bubble waffle]
+personlist = [8, evan chan, 8, dog, science, basketball, basketball, classical, romcom, A&W]
+similarity score = 2
+
+Here the similarity score would equal 2 since there are two 8s or a similarity between
+the two lists, this could cause a potential error or inaccurate calculations
+
 """
 file = open("2.4/responses.csv")
 #Opens the database file once
@@ -80,7 +106,7 @@ for quesion in survey:
 junk = file.readline()
 #Reads and discards the first line of the database which is 
 #useless and may cause future errors
-for line in file: 
+for line in file:
     #This for loop will iterate another for loop
     #for as many lines there are in the file of 
     #the database
@@ -88,13 +114,13 @@ for line in file:
     #resets the tally to 0 after the score of the person is 
     #recorded in rank list
     for x in range(len(userlist)):
-        #This for loop will run for how many qualities
-        #in urlist
+        #This for loop will run for however many qualities there are in userlist
         personlist = line.lower().split(',')
         #turns each line into a list and stores it in a variable
         if name in personlist:
             continue
-        #checks if the line contains the users name and skips over it
+        #checks if the line contains the users name and skips over it 
+        #preventing the program from finding the user itself as the best match
         if userlist[x] in personlist:
         #checks each individual quality in personlist 
         #and adds one to the tally for each quality
@@ -105,56 +131,66 @@ for line in file:
     listofnames.append(personlist[1])
     #at the end of the for loop adds the name of the person
     #to the listofnames before personlist is reset to the next person
-#print(str(rank))
+#print(str(listofscores))
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
+print('\n')# prints new line for aesthetic
 for a in range(3):
     #this for loop will run 3 times
-    score = -1
+    index = -1
     bestmatchscore = 0
-    #reseting the score and bestmatchscore variables 3 times
-    if first in listofnames:
-    #checks if that value of first is in the list
+    #reseting the index and bestmatchscore variables 3 times
+    if bestperson in listofnames:
+    #checks if the best person is in the list
     #if so, it will remove the value and the score 
-    # then allowing the for loop to continue
-    #finding the most similar person without the value of first
-            listofnames.remove(first)#new code usage(ask mrchin to explain)
-            listofscores.pop(placementofnum)#new code usage(ask mrchin to explain)
+    #then allowing the for loop to continue
+    #finding the most similar person without the value of the best person
+            listofnames.remove(bestperson)
+            listofscores.pop(placementofnum)
             #print('removed first person')
     for i in listofscores:
-        #iterates for the ammount of values in rank list
-        score += 1
-        #records the current placement of the value eg.
+        #iterates for the ammount of values in listofscores
+        index += 1
+        #records the current placement or index of the value ex.
         # (5, 6, 7)
         #if the for loop is checking 7
-        #score would equal 3 
+        #index would equal 3 
         if i > bestmatchscore:
         #checks if i is greater than the bestmatchscore
             bestmatchscore = i
         #if so, sets the bestmatch score = 1 & 
         #stores the name of the person in the first variable
         #stores the placement of the score in placementofnum
-            first = listofnames[score]
+        #creates system where a score is constantly being
+        #replaced by a newer higher one until the highest one is found
+            bestperson = listofnames[index]
+            #saves the person with the highest score
             #print('variable first has changed')
-            placementofnum = score
+            placementofnum = index
+            #saves the current index of the person with the highest score
     rankscore.append(bestmatchscore)
-    topthree.append(first)
-    #at the end of the for loop adds the values and scores of the best
-    #person to two different lists (this goes on 3 times)
-    #eg ['serene lee', 'jayden wong', 'gabe armour']
+    topthree.append(bestperson)
+    #at the end of the for loop it adds the values and scores of the best
+    #person to two different lists (this goes on until top 3 is found)
+    #eg 
+    # topthree = [serene lee, jayden wong, gabe armour]
+    # rankscore = [4, 3, 3]
 #print(str(best))
 #print(str(rankscore))
 place = ['first', 'second', 'third']
 #temporate list to hold words
 #I didn't want to write 9 if statements
 #I used a for loop that will run for the ammount of values in rankscore list
-#since it will run 3 times, Your    best match is   . is being written 3 times
-#each time the rank is different.
+#since it will run 3 times,
+#Your    best match is   . &
+#With a score of    /8!
+#is being written 3 times
+#each time the rank & score out of 8 is different.
 #I also used if statements to check each individual score if it is greater 
 #or equal to 4 less than 4 and greater or equal to 2 based on those conditions, the program
 #will dispense a different response for each of the 3 names
 for b in range(len(rankscore)):
-    print('Your ' + place[b] + ' best match is ' + str(best[b]))
+    print('\nYour ' + place[b] + ' best match is ' + str(topthree[b]))
+    print('With a score of ' + str(rankscore[b]) + '/8!')
     if rankscore[b] >= 4:
         print('Wow, you have alot in common with them!')
     elif rankscore[b] < 4 and rankscore[b] >= 2:
