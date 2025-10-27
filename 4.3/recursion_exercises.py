@@ -6,7 +6,7 @@ Write recursive functions for each of the following problems:
 # Exercise 0: Factorial
 # Remember that n! is defined as n * (n-1)! and 0! is 1
 def factorial(n):
-    # TODO implement this
+    n = n * (factorial(n-1))
     return 1
 
 print(factorial(1)) # Expected output: 1
@@ -20,8 +20,7 @@ print(factorial(5)) # Expected output: 120
 # Remember that x^y is defined as x * x^(y-1) and x^0 is 1.
 
 def power(x, y):
-    # TODO implement this
-    return 1
+    #return 1
 
 # Test cases
 print(power(2, 3))  # Expected output: 8
@@ -33,14 +32,13 @@ print(power(3, 2))  # Expected output: 9
 # takes a list of integers and an index and returns their sum.
 # Remember that the sum of a list is the first item plus the sum of the rest of the list.
 
-def sum_list_recursive_helper(numbers, index):
-    # TODO: implement this
-    return 0
+#def sum_list_recursive_helper(numbers, index):
+    #return 0
 
-def sum_list(numbers):
-    if len(numbers) > 0:
-        return sum_list_recursive_helper(numbers, 0)
-    return 0
+#def sum_list(numbers):
+    #if len(numbers) > 0:
+        #return sum_list_recursive_helper(numbers, 0)
+    #return 0
 
 # Test cases
 print(sum_list([1, 2, 3, 4]))   # Expected output: 10
@@ -55,18 +53,18 @@ print(sum_list([5, 10, 15]))    # Expected output: 30
 # NOTE: you will also need to implement a recursive helper, like in exercise 2.
 
 vowels = "aeiou"
-def count_vowels_recursive_helper(word, index):
+#def count_vowels_recursive_helper(word, index):
     # TODO implement this
     return 0
 
-def count_vowels(word):
+#def count_vowels(word):
     # TODO implement this
     return 0
 
 # Test cases
-print(count_vowels("hello"))     # Expected output: 2
-print(count_vowels("python"))    # Expected output: 1
-print(count_vowels("aeiou"))     # Expected output: 5
+#print(count_vowels("hello"))     # Expected output: 2
+#print(count_vowels("python"))    # Expected output: 1
+#print(count_vowels("aeiou"))     # Expected output: 5
 
 # Exercise 4: Reverse String
 # Implement a function named reverse_string(s) that returns the reversed version of the string.
@@ -74,10 +72,10 @@ print(count_vowels("aeiou"))     # Expected output: 5
 # the rest of the string.
 # NOTE: You might need a recursive helper like in exercises 2 and 3.
 
-def reverse_string(word):
+#def reverse_string(word):
     return ""
 
 # Test cases
-print(reverse_string("hello"))    # Expected output: "olleh"
-print(reverse_string(""))         # Expected output: ""
-print(reverse_string("Python"))   # Expected output: "nohtyP"
+#print(reverse_string("hello"))    # Expected output: "olleh"
+#print(reverse_string(""))         # Expected output: ""
+#print(reverse_string("Python"))   # Expected output: "nohtyP"
