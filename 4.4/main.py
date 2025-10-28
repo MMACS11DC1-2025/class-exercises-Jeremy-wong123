@@ -2,11 +2,13 @@ import turtle
 import random
 t = turtle.Turtle()
 
-def web(x):
-    t.penup()
+def snow(x):
+  for i in range(x):
     t.forward(10 * x)
-    t.left(360/6)
-    t.pendown()
-    t.forward()
+    t.right(60)
+    if (x>6):
+      snow(x/y)
+    t.forward(10)
+    t.goto(6 * x)
 
-web(3)
+snow(12)
