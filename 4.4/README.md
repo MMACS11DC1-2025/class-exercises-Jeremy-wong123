@@ -1,0 +1,1 @@
+For now, I'll start with creating a base function and some starter turtle functions 
