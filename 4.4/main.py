@@ -3,33 +3,33 @@ import random
 
 t = turtle.Turtle()
 b = turtle.Screen()
-t.color('blue')
+t.color('white ')
 t.speed(0)
 b.bgcolor('black')
 #function to draw a side
 def flake(length, depth):
   #base case, draw forward until depth is 0
   if depth == 0:
-  t.forward(length)
+    t.forward(length)
   else:
   #recursion, draw forward again or turn right 
   #& draw forward & turn left & turn right
   #until depth is 0
-  flake(length/3, depth-1)
-  t.right(60)
-  flake(length/3, depth-1)
-  t.left(120)
-  flake(length/3, depth-1)
-  t.right(60)
-  flake(length/3, depth-1)
+    flake(length/3, depth-1)
+    t.right(60)
+    flake(length/3, depth-1)
+    t.left(120)
+    flake(length/3, depth-1)
+    t.right(60)
+    flake(length/3, depth-1)
 
-for b in range(50):
+for b in range(10):
   #randomizes where the flake will be each iteration
   x = random.choice(range(400))-200
   y = random.choice(range(400))-200
   #randomizes length and depth of each flake
   length = random.choice(range(50))+25
-  depth = random.choice(range(3))+1
+  depth = random.choice(range(2))+2
   #seemlessly move froom coord to coord drawing 
   #different flakes in different places
   t.penup()
