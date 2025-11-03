@@ -42,8 +42,25 @@ for b in range(50):
 #AT CLASS
 #Ask how I could improve the random coordinates
 #ask how I could modify the range to go from negatives
+#RECURSION Q
+#Ask what returning meaningful values mean
+#Ask what prints the total count of recursive calls means
+#What resembles good usage of dictionaries(get a 2)
 
 #PLAN 
 #to draw a snowing weather 
 #maybe draw a tree in the background 
 #use a dictionary for snowcolors(white, blue, cyan)
+
+#TIMELINE 
+#SUN:
+#   Develop the recursion function and basis for program
+#   Develop meaningful questions about assignment in class
+#MON:
+#   Spend half time studying, half time coding(40/40 Min)
+#TUE:
+#   Spend more time studying, less time coding(40/20min)
+#WED:
+#   Spend half time studying, half time coding(40/40 Min)
+#THU:
+#   Spend more time studying, less time coding(40/20min)
