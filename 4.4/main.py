@@ -10,35 +10,35 @@ b.bgcolor('black')
 def flake(length, depth):
   #base case, draw forward until depth is 0
   if depth == 0:
-    t.forward(length)
+  t.forward(length)
   else:
-    #recursion, draw forward again or turn right 
-    #& draw forward & turn left & turn right
-    #until depth is 0
-    flake(length/3, depth-1)
-    t.right(60)
-    flake(length/3, depth-1)
-    t.left(120)
-    flake(length/3, depth-1)
-    t.right(60)
-    flake(length/3, depth-1)
+  #recursion, draw forward again or turn right 
+  #& draw forward & turn left & turn right
+  #until depth is 0
+  flake(length/3, depth-1)
+  t.right(60)
+  flake(length/3, depth-1)
+  t.left(120)
+  flake(length/3, depth-1)
+  t.right(60)
+  flake(length/3, depth-1)
 
 for b in range(50):
   #randomizes where the flake will be each iteration
-  x = random.choice(range(100))
-  y = random.choice(range(100))
+  x = random.choice(range(400))-200
+  y = random.choice(range(400))-200
   #randomizes length and depth of each flake
-  length = random.choice(range(50))
-  depth = random.choice(range(5))
+  length = random.choice(range(50))+25
+  depth = random.choice(range(3))+1
   #seemlessly move froom coord to coord drawing 
   #different flakes in different places
   t.penup()
   t.goto(x, y)
   t.pendown()
   #to draw an actual flake
-  for i in range(6):
+  for i in range(3):
     flake(length, depth)
-    t.right(60)
+    t.left(120)
 #AT CLASS
 #Ask how I could improve the random coordinates
 #ask how I could modify the range to go from negatives
