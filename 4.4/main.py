@@ -6,10 +6,15 @@ t.speed(0)
 b.bgcolor('black')
 totalcall = 0
 def tree():
+  #function to draw a christmas tree
+  
+  #draws the starting triangle of the tree
   t.color('green')
   for i in range(3):
     t.forward(50)
     t.left(120)
+    
+  #draws 2nd layer of the tree(trapezoid)
   t.forward(13)
   t.right(120)
   t.forward(75)
@@ -18,6 +23,8 @@ def tree():
   t.left(120)
   t.forward(75)
   t.backward(75)
+  
+  #draws the stem of tree(rectangle)
   t.left(60)
   t.forward(13)
   t.left(120)
@@ -28,6 +35,8 @@ def tree():
   t.forward(88)
   t.backward(88)
   t.right(60)
+  
+  #draws the stem of tree(rectangle)
   t.forward(54)
   t.color('brown')
   t.right(90)
@@ -37,15 +46,16 @@ def tree():
   t.left(90)
   t.forward(100)
 tree()
-
 #list to house the colors for the turtle
-roy = ['red', 'orange', 'yellow']
-bwc = ['blue', 'white', 'cyan']
-www = ['white', 'white', 'white']
+ROY = ['red', 'orange', 'yellow']
+BWC = ['blue', 'white', 'cyan']
+WWW = ['white']
 #dictionary to house the color pallete for turtle
-naughtylist = {'roy': roy, 'bwc': bwc, 'www': www}
+naughtylist = {'roy': ROY, 'bwc': BWC, 'www': WWW}
 #sees if the user is good or bad
 version = input('HO HO HO ! Merry Christmas! Have you been a good boy?(good, bad, ehh)').lower()
+
+#changes the color pallete
 if version == 'good':
   pallete = naughtylist['bwc']
 elif version == 'ehh':
@@ -70,13 +80,14 @@ def flake(length, depth):
     flake(length/3, depth-1)
     t.right(60)
     flake(length/3, depth-1)
-  return totalcall
+    
+    return depth
 
 for b in range(15):
   t.color(random.choice(pallete))
   #randomizes where the flake will be each iteration
-  x = random.choice(range(400))-200
-  y = random.choice(range(400))-200
+  x = random.choice(range(350))-175
+  y = random.choice(range(350))-175
   #randomizes length and depth of each flake
   length = random.choice(range(50))+25
   depth = random.choice(range(2))+2
@@ -89,29 +100,6 @@ for b in range(15):
   for i in range(3):
     flake(length, depth)
     t.left(120)
-print(totalcall)
-#AT CLASS
-#Ask how I could improve the random coordinates
-#ask how I could modify the range to go from negatives
-#RECURSION Q
-#Ask what returning meaningful values mean
-#Ask what prints the total count of recursive calls means
-#What resembles good usage of dictionaries(get a 2)
-
-#PLAN 
-#to draw a snowing weather 
-#maybe draw a tree in the background 
-#use a dictionary for snowcolors(white, blue, cyan)
-
-#TIMELINE 
-#SUN:
-#   Develop the recursion function and basis for program
-#   Develop meaningful questions about assignment in class
-#MON:
-#   Spend half time studying, half time coding(40/40 Min)
-#TUE:
-#   Spend more time studying, less time coding(40/20min)
-#WED:
-#   Spend half time studying, half time coding(40/40 Min)
-#THU:
-#   Spend more time studying, less time coding(40/20min)
+    totalcall += depth
+  #returns the ammount of times flake function was called
+print('Function was called ' + str(totalcall) + ' times')
