@@ -77,26 +77,26 @@ else:
 
 #function to draw a side of a snowflake
 def flake(length, depth):
-  totalcall = 0
+  call = 1
   #base case, draw forward until depth is 0
   
   if depth == 0:
     t.forward(length)
-    totalcall += 1
     # variable to house the total number of times the flake is called
+    return call
   
   else:
   #recursion, draw forward again or turn right 
   #& draw forward & turn left & turn right
   #until depth is 0
-    flake(length/3, depth-1)
+    call += flake(length/3, depth-1)
     t.right(60)
-    flake(length/3, depth-1)
+    call += flake(length/3, depth-1)
     t.left(120)
-    flake(length/3, depth-1)
+    call += flake(length/3, depth-1)
     t.right(60)
-    flake(length/3, depth-1)
-    return totalcall
+    call += flake(length/3, depth-1)
+    return call
 #>-----------------------------------------------<
 
 

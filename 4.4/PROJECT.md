@@ -66,9 +66,7 @@ You'll create a fractal generator that can draw at least one recursive pattern (
 ### **Creative & Process Elements**
 - [ ] Unique visual patterns or creative approaches (1 pt)
 - [ ] Comprehensive testing documentation (1 pt)
-- [ ] Documentation explains recursive approach (1 pt)
-- [ ] Documentation explains how different inputs affect output (1 pt)
-- [ ] Documentation of challenges overcome during development (1 pt)
+
 
 ## **SUBMISSION REQUIREMENTS**
 

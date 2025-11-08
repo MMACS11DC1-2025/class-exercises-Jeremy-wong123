@@ -14,6 +14,8 @@ Approach>>>
     Koch snowflake>>>>
         1. A koch snowflake is a triangle where it's sides form smaller triangles, this pattern of triangles forming on sides goes on and on.
         2.Used recursive function 'flake()' to draw a side of the snowflake, it would emulate this 'triangle with triangle sides' pattern. Would repeat the pattern 3 times and turn left each time to complete the snowflake
+        3. To draw the snow flake i used ' if depth > 0' as a base case condition that would make the turtle draw forward if the depth was 0
+        4. The recursive part of the function is in the else where the turtle will turn lefft and right to form triangles on the sides as well as recall the function with the same variables that slowly work towards depth being equal to 0
 
     Random coords>>>>
         1. used a random number generate for both x and y coordinates
@@ -52,3 +54,5 @@ possible bugs>>>
 
 Peer review>>>
 
+
+test cases>>>
