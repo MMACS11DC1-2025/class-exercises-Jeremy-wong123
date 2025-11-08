@@ -32,13 +32,13 @@ print(power(3, 2))  # Expected output: 9
 # takes a list of integers and an index and returns their sum.
 # Remember that the sum of a list is the first item plus the sum of the rest of the list.
 
-#def sum_list_recursive_helper(numbers, index):
-    #return 0
+def sum_list_recursive_helper(numbers, index):
+    return 0
 
-#def sum_list(numbers):
-    #if len(numbers) > 0:
-        #return sum_list_recursive_helper(numbers, 0)
-    #return 0
+def sum_list(numbers):
+    if len(numbers) > 0:
+        return sum_list_recursive_helper(numbers, 0)
+    return 0
 
 # Test cases
 print(sum_list([1, 2, 3, 4]))   # Expected output: 10
@@ -53,11 +53,11 @@ print(sum_list([5, 10, 15]))    # Expected output: 30
 # NOTE: you will also need to implement a recursive helper, like in exercise 2.
 
 vowels = "aeiou"
-#def count_vowels_recursive_helper(word, index):
+def count_vowels_recursive_helper(word, index):
     # TODO implement this
     return 0
 
-#def count_vowels(word):
+def count_vowels(word):
     # TODO implement this
     return 0
 
@@ -72,10 +72,10 @@ vowels = "aeiou"
 # the rest of the string.
 # NOTE: You might need a recursive helper like in exercises 2 and 3.
 
-#def reverse_string(word):
+def reverse_string(word):
     return ""
 
-# Test cases
-#print(reverse_string("hello"))    # Expected output: "olleh"
-#print(reverse_string(""))         # Expected output: ""
-#print(reverse_string("Python"))   # Expected output: "nohtyP"
+ #Test cases
+print(reverse_string("hello"))    # Expected output: "olleh"
+print(reverse_string(""))         # Expected output: ""
+print(reverse_string("Python"))   # Expected output: "nohtyP"
