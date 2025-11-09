@@ -8,6 +8,37 @@ totalcall = 0
 #>-----------------------------------------------<
 
 
+
+def drawTree(level, branchLength):
+  if level > 0:
+    turtle.forward(branchLength)
+    turtle.left(40)
+    drawTree(level-1, branchLength/1.61)
+    
+    turtle.right(80)
+    drawTree(level-1, branchLength/1.61)
+    
+    turtle.left(40)
+    turtle.back(branchLength)
+  else:
+    turtle.color("green")
+    turtle.stamp()
+    turtle.color("brown")
+turtle.speed(0)
+turtle.penup()
+turtle.goto(0, -180)
+turtle.left(90)
+turtle.pendown()
+
+turtle.color("brown")
+turtle.width(3)
+turtle.shape("triangle")
+
+drawTree(4, 100)
+#>-----------------------------------------------<
+
+
+
 def tree():
   #function to draw a christmas tree
   
@@ -48,7 +79,6 @@ def tree():
   t.forward(54)
   t.left(90)
   t.forward(100)
-tree()
 #>-----------------------------------------------<
 
 
