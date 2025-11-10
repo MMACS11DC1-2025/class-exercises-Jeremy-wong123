@@ -7,38 +7,6 @@ b.bgcolor('black')
 totalcall = 0
 #>-----------------------------------------------<
 
-
-
-def drawTree(level, branchLength):
-  if level > 0:
-    turtle.forward(branchLength)
-    turtle.left(40)
-    drawTree(level-1, branchLength/1.61)
-    
-    turtle.right(80)
-    drawTree(level-1, branchLength/1.61)
-    
-    turtle.left(40)
-    turtle.back(branchLength)
-  else:
-    turtle.color("green")
-    turtle.stamp()
-    turtle.color("brown")
-turtle.speed(0)
-turtle.penup()
-turtle.goto(0, -180)
-turtle.left(90)
-turtle.pendown()
-
-turtle.color("brown")
-turtle.width(3)
-turtle.shape("triangle")
-
-drawTree(4, 100)
-#>-----------------------------------------------<
-
-
-
 def tree():
   #function to draw a christmas tree
   
@@ -58,7 +26,7 @@ def tree():
   t.forward(75)
   t.backward(75)
   
-  #draws 3rd layer of the tree(trapezoid)
+  #draws the stem of tree(rectangle)
   t.left(60)
   t.forward(13)
   t.left(120)
@@ -79,8 +47,7 @@ def tree():
   t.forward(54)
   t.left(90)
   t.forward(100)
-#>-----------------------------------------------<
-
+tree()
 
 #list to house the colors for the turtle
 bad = ['red', 'orange', 'yellow']
@@ -89,7 +56,6 @@ ehh = ['white']
 
 #dictionary to house the color pallete for turtle
 naughtylist = {'red_orange_yellow': bad, 'blue_cyan_white': good, 'white': ehh}
-
 #sees if the user is good, ehh or bad
 version = input('HO HO HO ! Merry Christmas! Have you been a good boy?(good, bad, ehh)').lower()
 #>-----------------------------------------------<
