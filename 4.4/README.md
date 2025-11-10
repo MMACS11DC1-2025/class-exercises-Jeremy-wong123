@@ -53,6 +53,16 @@ possible bugs>>>
 
 
 Peer review>>>
-
+Ashar-
+    He really enjoyed the different snowflake colours 
+    He suggested I add a case for invalid input other than (good, bad, or ehh)
 
 test cases>>>
+    The predicted output is a window with a black background and an outline of a christmas tree with random snowflakes in random places
+        - The snowflakes will be either blue, cyan, or white if the input is 'good'
+        - the snowflakes will be either red, orange, or yellow if the input is anything other than 'good' or 'ehh'
+        - the snowflakes will be all white if the input is 'ehh'
+
+![alt text](<Screenshot 2025-11-10 091634.png>) image generated for 'ehh' input
+![alt text](<Screenshot 2025-11-10 091509.png>) image generated for 'bad' or invalid input
+![alt text](<Screenshot 2025-11-10 125623.png>) image created for 'good' input
