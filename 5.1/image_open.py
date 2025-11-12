@@ -10,9 +10,17 @@ def is_green(r, g, b):
         return False
 print(image_green[0,0])
 
+def color(r, g, b):
+    hal = []
+    for i in range(3):
+        col = int(r)
+        hal.append(col)
+    return hal
+
 pixel = image_green[0, 0]
 r = pixel[0]
 g = image_green[0,0][1]
 b = image_green[0,0][2]
 
 print(is_green(r, g, b))
+print(color(r, g, b))
