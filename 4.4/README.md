@@ -7,7 +7,7 @@ Approach>>>
         This program uses 2 user inputs, it gets a number between 1-15 from the user and asks if the user was good, bad or ehh
 
         -if either valid did not fit the conditions set by the program, the program will ask the user these conditions again for however many times
-        
+
     dictionary color pallete>>>>
         1. to change snowflakes based on if the user was good, bad, or ehh
         2. used a dictionary to house 3 different lists of different color palletes for each snowflake to be everytime a snowflake was drawn
@@ -55,6 +55,8 @@ possible bugs>>>
     -if user does not follow valid input set by the program(not 'good', 'bad' or 'ehh') &(not a number from 1-15) the user must re-enter a suitable value
     -Some cases where a snowflake may be drawn partially outside the window
     -Scenarios where snowflakes clutter in a specfic area
+    -If the user inputs a string as the ammount of desired snowflakes
+    the program will have an error since it's trying to turn a string of letters into an integer
 
 
 
@@ -71,3 +73,7 @@ test cases>>>
         - the snowflakes will be all white if the input is 'ehh'
         
     -When the program finishes running it will print the total number of times the recursive function was called 
+
+
+    Images>>
+        
