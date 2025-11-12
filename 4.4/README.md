@@ -72,8 +72,13 @@ test cases>>>
         - the snowflakes will be either red, orange, or yellow if the input is anything other than 'good' or 'ehh'
         - the snowflakes will be all white if the input is 'ehh'
         
-    -When the program finishes running it will print the total number of times the recursive function was called 
+    invalid input:
+        The expected output for invalid user input is the program asking the user again for a valid input up until a valid one is given for both of the inputs the user is required to give.
 
+    Colour pallet:
+        The different color pallets are (red, yellow, orange), (blue, cyan, white) and white. They dictate the colour of the snowflakes.
 
-    Images>>
+        Red, yellow, orange-- for user input of 'bad' 
+        Blue, cyan, white -- for user input of 'good'
+        White -- for user input of 'ehh'
         
