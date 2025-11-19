@@ -8,3 +8,9 @@ def color(r, g, b):
         return 'green'
     else:
         return 'other'
+    
+def colour(r, g, b):
+    if r > 150 and g > 150 and b < 150:
+        return 'yellow'
+    else:
+        return 'other'
