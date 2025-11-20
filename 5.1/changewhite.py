@@ -15,8 +15,8 @@ for x in range(width):
         b = jb[x,y][2]
 
         if image.colour(r, g, b) == 'yellow':
-            new = jb[x, y]
+            newpixel = (255, 255, 255)
             xy = (x,y)
-            file.putpixel(xy, jb)
+            file.putpixel(xy, newpixel)
 
 file.save('output.png', "png")
