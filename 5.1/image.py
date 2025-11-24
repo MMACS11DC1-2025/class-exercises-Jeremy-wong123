@@ -9,14 +9,32 @@ def color(r, g, b):
     else:
         return 'other'
     
-def colour(r, g, b):
+def yellow(r, g, b):
     if r > 150 and g > 150 and b < 150:
         return 'yellow'
     else:
         return 'other'
+    
+def red(r, g, b):
+    if r > 230 and g >= 0 and g < 150 and b >= 0 and b < 150:
+        return 'red'
+    else:
+        return 'other'
+    
+def blue(r, g, b):
+    if r >= 0 and r < 150 and g >= 0 and g < 150 and b > 230:
+        return 'blue'
+    else:
+        return 'other'
+    
+def purple(r, g, b):
+    if r > 150 and g < 150 and b > 150:
+        return 'purple'
+    else:
+        return 'other'
 
 def is_light(r, g, b):
-    if (r + g + b/3) >= 128:
+    if ((r + g + b)/3) >= 128:
         return True
     else:
         return False
