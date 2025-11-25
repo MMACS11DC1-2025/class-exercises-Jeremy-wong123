@@ -37,4 +37,5 @@ image_open_load = t2-t1
 load = t3-t2
 entore = t3-t0
 
-timings = 'It took {:.2f}s to import PIL, {:.2f}s to load the image, and {:.2f}s to do the loop. All in all it took {:.2f}s.'.format(module_load, image_open_load)
+timings = 'It took {:.2f}s to import PIL, {:.2f}s to load the image, and {:.2f}s to do the loop. All in all it took {:.2f}s.'.format(module_load, image_open_load, loop, entire)
+print(timings)
