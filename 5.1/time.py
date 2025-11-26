@@ -5,7 +5,7 @@ from PIL import Image
 
 t1 = time.time()
 
-file = Image.open('jelly_beans.jpg)')
+file = Image.open('5.1/jelly_beans (1).jpg')
 jbimg = file.load()
 
 width = file.width
@@ -34,8 +34,8 @@ print(report)
 
 module_load = t1-t0
 image_open_load = t2-t1
-load = t3-t2
-entore = t3-t0
+loop = t3-t2
+entire = t3-t0
 
 timings = 'It took {:.2f}s to import PIL, {:.2f}s to load the image, and {:.2f}s to do the loop. All in all it took {:.2f}s.'.format(module_load, image_open_load, loop, entire)
 print(timings)
