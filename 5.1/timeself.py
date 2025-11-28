@@ -1,12 +1,9 @@
-#import time
-#t = time.time()
+import time
+t = time.time()
 from PIL import Image 
 import image
-
-#t1 = time.time()
 file = Image.open('5.1/mountain.jpg')
 jbimg = file.load()
-
 width = file.width
 height = file.height
 light = 0
@@ -43,9 +40,27 @@ pal.append(green)
 pal.append(blue) 
 pal.append(purple)  
 for i in range(len(pal)):
-    if i > best:
-        best = i
-if 
+    if pal[i] > best:
+        best = pal[i]
+if best == yellow:
+    yeah = 'yellow'
+elif best == blue:
+    yeah = 'blue'
+elif best == green:
+    yeah = 'green'
+elif best == red:
+    yeah = 'red'
+elif best == purple:
+    yeah = 'purple'
+if dark > light:
+    bright = 'dark'
+else:
+    bright = 'light'
+t2 = time.time()
+print('This image is mostly ' + yeah + ' and is pretty ' + bright)
+total = t2 - t
+print('It took {:.3f} seconds to run the program'.format(total))
+
 
 
 
