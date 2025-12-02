@@ -16,13 +16,13 @@ def yellow(r, g, b):
         return False
     
 def red(r, g, b):
-    if r > 230 and g >= 0 and g < 150 and b >= 0 and b < 150:
+    if r > 150 and g < 150 and b < 150:
         return True
     else:
         return False
     
 def blue(r, g, b):
-    if r >= 0 and r < 150 and g >= 0 and g < 150 and b > 230:
+    if r < 128 and g < 150 and b > 150:
         return True
     else:
         return False
