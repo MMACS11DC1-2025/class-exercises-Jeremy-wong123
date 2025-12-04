@@ -17,18 +17,21 @@ for line in file:
 
 
 for i in range(len(data)):
-	current = data[-1]
+	current = data[i]
 	index = i
 
-	for j in range(i-1, len(data)):
-		if data[j] > current:
+	for j in range(i+1, len(data)):
+		if data[j] < current:
 			current = data[j]
 			index = j
 	
-	data[index], data[i] = data[i],
-	data[index]
+	data[index], data[i] = data[i], data[index]
 
-top5 = data[:5]
+top5 = data[-5:]
+topf = song[-5:]
+inde = 4
 print("Dance score \tSong")
 for item in top5:
-	print(str(item))
+	print(str(top5[inde]) + '\t' + str(topf[inde]))
+	inde -= 1
+
