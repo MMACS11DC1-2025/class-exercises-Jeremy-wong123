@@ -37,9 +37,9 @@ for i in range(width):
             purple += 1
         elif functions.green(r, g, b):
             green += 1
-
+t1 = time.time()
 all = [green, purple, red, blue, yellow]
-print(all)
+print(functions.greenery(all))
 
 
 
