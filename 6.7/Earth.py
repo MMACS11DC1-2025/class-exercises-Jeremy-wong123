@@ -21,6 +21,7 @@ earth_rock = 61
 
 tstart = time.time()
 planets = ['6.7/planets/Kepler-22b.jpeg', '6.7/planets/titan.jpg', '6.7/planets/uranus.webp', '6.7/planets/venus.jpg', '6.7/planets/notearth.jpg', '6.7/planets/saturn.jpg', '6.7/planets/sun.jpg', '6.7/planets/mars.jpg', '6.7/planets/magma.jpg', '6.7/planets/notearth.jpg']
+name = [Kepler]
 for a in range(len(planets)):
     yellow = 0
     green = 0
@@ -52,7 +53,6 @@ for a in range(len(planets)):
     rocks = functions.rocks(all) * 100
     tdone = time.time()
     print('Planet {} has {:.0f}% greenery'.format(a+1, greenery) + '\t' + '{:.0f}% Ocean'.format(ocean) + '\t' + '{:.0f}% rocks'.format(rocks))
-    print('Planet {} took {:.3f} seconds to process'.format(a+1, tdone-tplanet))
-    print('\n')
+    print('Planet {} took {:.3f} seconds to process \n'.format(a+1, tdone-tplanet))
 
 
