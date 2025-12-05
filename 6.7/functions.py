@@ -1,20 +1,21 @@
 from PIL import Image 
 
 def green(r, g, b):
-    return (r < 128 and g > 128 and b < 128)
+    return (r < g and g > 128 and b < g)
 
 def blue(r, g, b):
-    return (r < 128 and g < 128 and b > 128)
+    return (r < b and g < b and b > 128)
 
 def red(r, g, b):
-    return (r > 128 and g < 128 and b < 128)
+    return (r > 128 and g < r and b < r)
 
 def yellow(r, g, b):
-    return (r > 128 and g > 128 and b < 128)
+    return (r > b and g > b and b < 128)
 
 def purple(r, g, b):
-    return (r > 128 and g < 128 and b > 128)
+    return (r > g and g < 128 and b > g)
 
+all = [green, purple, red, blue, yellow]
 def water(all):
     r = all[2]
     g = all[0]
