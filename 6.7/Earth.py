@@ -53,6 +53,8 @@ for a in range(len(planets)):
     rocks = functions.rocks(all) * 100
     tdone = time.time()
     print('{} has {:.0f}% greenery'.format(name[a], greenery) + '\t' + '{:.0f}% Ocean'.format(ocean) + '\t' + '{:.0f}% rocks'.format(rocks))
-    print('{} took {:.3f} seconds to process \n'.format(name[a]), tdone-tplanet)
+    print('{} took {:.3f} seconds to process \n'.format(name[a], tdone-tplanet))
+
+    
 
 
