@@ -43,4 +43,6 @@ def rocks(all):
     total = r + g + b + y + p
     return (y+r)/total 
 
+
+
         

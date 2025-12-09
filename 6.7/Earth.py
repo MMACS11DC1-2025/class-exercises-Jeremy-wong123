@@ -19,6 +19,11 @@ earth_ocean = 29
 earth_rock = 61
 #Earth's values
 
+greenlist = []
+oceanlist = []
+rocklist = []
+#list of planet values
+
 tstart = time.time()
 planets = ['6.7/planets/Kepler-22b.jpeg', '6.7/planets/titan.jpg', '6.7/planets/uranus.webp', '6.7/planets/venus.jpg', '6.7/planets/jupiter.png', '6.7/planets/saturn.jpg', '6.7/planets/sun.jpg', '6.7/planets/mars.jpg', '6.7/planets/magma.jpg', '6.7/planets/notearth.jpg']
 name = ['kepler-22b', 'titan', 'uranus', 'venus', 'jupiter', 'saturn', 'sun', 'mars', 'magma', 'notearth']
@@ -52,9 +57,43 @@ for a in range(len(planets)):
     ocean = functions.water(all) * 100
     rocks = functions.rocks(all) * 100
     tdone = time.time()
-    print('{} has {:.0f}% greenery'.format(name[a], greenery) + '\t' + '{:.0f}% Ocean'.format(ocean) + '\t' + '{:.0f}% rocks'.format(rocks))
-    print('{} took {:.3f} seconds to process \n'.format(name[a], tdone-tplanet))
+    greenlist.append(greenery)
+    oceanlist.append(ocean)
+    rocklist.append(rocks)
 
-    
+bestgreen = []
+bestocean = []
+bestrock = []
+rankofplanets = []
+for j in range(len(name)):
+    planetid = j
+    for i in range(len(name)):
+        green_score = abs(earth_green - greenlist[i])
+        ocean_score = abs(earth_ocean - oceanlist[i])
+        rock_score = abs(earth_rock - rocklist[i])
+        bestgreen.append(green_score)
+        bestocean.append(ocean_score)
+        bestrock.append(rock_score)
+    '''
+    closestg = 100
+    closesto = 100
+    closestr = 100
+    '''
+    for i in range(len(name)):
+        if bestgreen[i] <= closestg:
+            closestg = i
+        if bestocean[i] <= closesto:
+            closesto = i
+        if bestrock[i] <= closestr:
+            closestr = i
+        closeaverage = (closestg + closesto + closestr)/3
+
+
+
+twhole = time.time()
+    #print('{} has {:.0f}% greenery'.format(name[a], greenery) + '\t' + '{:.0f}% Ocean'.format(ocean) + '\t' + '{:.0f}% rocks'.format(rocks))
+    #print('{} took {:.3f} seconds to process \n'.format(name[a], tdone-tplanet))
+
+
 
 
