@@ -61,9 +61,7 @@ for a in range(len(planets)):
     oceanlist.append(ocean)
     rocklist.append(rocks)
 
-bestgreen = []
-bestocean = []
-bestrock = []
+ranking = []
 rankofplanets = []
 for j in range(len(name)):
     planetid = j
@@ -71,21 +69,13 @@ for j in range(len(name)):
         green_score = abs(earth_green - greenlist[i])
         ocean_score = abs(earth_ocean - oceanlist[i])
         rock_score = abs(earth_rock - rocklist[i])
-        bestgreen.append(green_score)
-        bestocean.append(ocean_score)
-        bestrock.append(rock_score)
+        planetscore = (ocean_score + green_score + rock_score)/3
+        rankofplanets.append(planetscore)
+        ranking.append(planetid)
 
+print(rankofplanets)
+print(ranking)
 
-    for i in range(len(name)):
-        smallgreen = bestgreen[i]
-        smallocean = bestocean[i]
-        smallrocks = bestrock[i]
-        smallindex = i
-
-        for b in range(i+1, len(name)):
-            if bestgreen[b] < smallgreen:
-                smallgreen = bestgreen[b]
-            
 
 
 twhole = time.time()
