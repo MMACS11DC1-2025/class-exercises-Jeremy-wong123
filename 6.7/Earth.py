@@ -107,3 +107,6 @@ report, or dataset supporting decisions for detecting feature (4 points)
 
 
 '''
+#Future Idea: A star detector
+    #Describes the start determining it's age & star type including it's similarity to our sun
+    #Based off of colour
