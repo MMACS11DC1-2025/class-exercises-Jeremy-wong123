@@ -61,7 +61,14 @@ for a in range(len(planets)):
     oceanlist.append(ocean)
     rocklist.append(rocks)
 
+    print('Planet {} has {:.0f}% greenery'.format(a+1, greenery) + '\t' + '{:.0f}% Ocean'.format(ocean) + '\t' + '{:.0f}% rocks'.format(rocks))
+    print('Planet {} took {:.3f} seconds to process'.format(a+1, tdone-tplanet))
+    print('\n')
 
+
+
+
+'''
 scoreofplanets = []
 for i in range(len(name)):
     green_score = abs(earth_green - greenlist[i])
@@ -69,18 +76,15 @@ for i in range(len(name)):
     rock_score = abs(earth_rock - rocklist[i])
     planetscore = int((ocean_score + green_score + rock_score)/3)
     scoreofplanets.append(planetscore)
+print(scoreofplanets)
 
-sortedlist = []
-for i in range(len(scoreofplanets)):
-    closest = scoreofplanets[i]
-    index = i
-    for j in range(i+1, len(scoreofplanets)):
-        if scoreofplanets[j] > closest:
-            closest = scoreofplanets[j]
-            sortedlist.append(closest)
-        
+'''
 
-#print('The planet closest to earth is {} with an average difference of {:.0f}'.format())
+
+
+
+    
+#print('The planet closest to earth is {} with an average difference of {:.0f}'.format(name[index], sortedlist[0]))
 
 '''
 Questions for Mr.Chin:
