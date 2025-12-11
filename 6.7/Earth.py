@@ -82,3 +82,28 @@ for i in range(len(scoreofplanets)):
 
 #print('The planet closest to earth is {} with an average difference of {:.0f}'.format())
 
+'''
+Questions for Mr.Chin:
+
+
+### Algorithms and Efficiency (Unit 6)
+#### Task 4: Selection Sort
+- [ ] Implement the Selection Sort algorithm function yourself 
+(not using built-in libraries for sorting) to sort the master list based on the 
+calculated Feature Density Score (highest to lowest) (12 pts)
+
+- [ ] Output the top 5 results using list slicing (3 pts)
+#### Task 5: Binary Search
+
+- [ ] Implement the Binary Search algorithm function yourself to search the 
+sorted list for a specific target score (10 pts)
+
+- [ ] Performance analysis: include a section in your README describing your code 
+profiling: give an example of the report and discuss what parts of the program 
+take the longest
+
+- [ ] Captured feature involves a real-world use-case. References a real paper, 
+report, or dataset supporting decisions for detecting feature (4 points)
+
+
+'''
