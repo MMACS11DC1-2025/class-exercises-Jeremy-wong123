@@ -74,20 +74,18 @@ for j in range(len(name)):
         bestgreen.append(green_score)
         bestocean.append(ocean_score)
         bestrock.append(rock_score)
-    '''
-    closestg = 100
-    closesto = 100
-    closestr = 100
-    '''
-    for i in range(len(name)):
-        if bestgreen[i] <= closestg:
-            closestg = i
-        if bestocean[i] <= closesto:
-            closesto = i
-        if bestrock[i] <= closestr:
-            closestr = i
-        closeaverage = (closestg + closesto + closestr)/3
 
+
+    for i in range(len(name)):
+        smallgreen = bestgreen[i]
+        smallocean = bestocean[i]
+        smallrocks = bestrock[i]
+        smallindex = i
+
+        for b in range(i+1, len(name)):
+            if bestgreen[b] < smallgreen:
+                smallgreen = bestgreen[b]
+            
 
 
 twhole = time.time()
