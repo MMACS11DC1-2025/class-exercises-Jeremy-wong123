@@ -61,27 +61,19 @@ for a in range(len(planets)):
     oceanlist.append(ocean)
     rocklist.append(rocks)
 
-ranking = []
 rankofplanets = []
-for j in range(len(name)):
-    planetid = j
-    for i in range(len(name)):
-        green_score = abs(earth_green - greenlist[i])
-        ocean_score = abs(earth_ocean - oceanlist[i])
-        rock_score = abs(earth_rock - rocklist[i])
-        planetscore = (ocean_score + green_score + rock_score)/3
-        rankofplanets.append(planetscore)
-        ranking.append(planetid)
-
+for i in range(len(name)):
+    green_score = abs(earth_green - greenlist[i])
+    ocean_score = abs(earth_ocean - oceanlist[i])
+    rock_score = abs(earth_rock - rocklist[i])
+    planetscore = int((ocean_score + green_score + rock_score)/3)
+    rankofplanets.append(planetscore)
 print(rankofplanets)
-print(ranking)
 
 
 
 twhole = time.time()
-    #print('{} has {:.0f}% greenery'.format(name[a], greenery) + '\t' + '{:.0f}% Ocean'.format(ocean) + '\t' + '{:.0f}% rocks'.format(rocks))
-    #print('{} took {:.3f} seconds to process \n'.format(name[a], tdone-tplanet))
-
-
+#print('{} has {:.0f}% greenery'.format(name[a], greenery) + '\t' + '{:.0f}% Ocean'.format(ocean) + '\t' + '{:.0f}% rocks'.format(rocks))
+#print('{} took {:.3f} seconds to process \n'.format(name[a], tdone-tplanet))
 
 
