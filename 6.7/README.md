@@ -2,7 +2,7 @@ Project theme:      Planets
 
 Purpose:
     My program observes the images of different planets and will identify wether it's mostly made up of ocean, rock or greenery in an attempt to find a planet that resembles earth. To do this, the program will search through the each image and identify blue pixels(Ocean), green pixels(greenery) and yellow/red pixels(rock). 
-        (These are the conditions for 'Oean', 'greenery' & 'rock')
+        (These are the conditions for 'Ocean', 'greenery' & 'rock')
             Ocean - if the blue pigment in the rgb pixel is higher than the green and red pigment
 
             Greenery - if the green pigment in the rgb pixel is higher than the blue and red pigment

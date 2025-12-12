@@ -1,8 +1,5 @@
 from PIL import Image 
 
-def green(r, g, b):
-    return (r < g and g > 128 and b < g)
-
 def blue(r, g, b):
     return (r < b and g < b and b > 128)
 
@@ -12,37 +9,36 @@ def red(r, g, b):
 def yellow(r, g, b):
     return (r > b and g > b and b < 128)
 
-def purple(r, g, b):
-    return (r > g and g < 128 and b > g)
+def orange(r, g, b):
+    return(r > g and g > 128 and b < g)
 
-all = [green, purple, red, blue, yellow]
-def water(all):
-    r = all[2]
-    g = all[0]
-    p = all[1]
+def white(r, g, b):
+    return(r > 230 and g > 230 and b > 230)
+
+all = [red, orange, yellow, blue, white]
+
+def startype(all):
+    r = all[0]
+    o = all[1]
+    y = all[2]
     b = all[3]
-    y = all[4]
-    total = r + g + b + y + p
-    return b/total
+    w = all[4]
+    total = r + o + y + b + w
+    redperc, orgperc, yelperc, bluperc, whiperc = (r/total * 100), (o/total * 100), (y/total * 100), (b/total * 100), (w/total * 100)
+    totallist = [redperc, orgperc, yelperc, bluperc, whiperc]
+    sortedlist = []
+    for i in range(len(totallist)):
+        highestscore = totallist[i]
+        highestindex = i
 
-def greenery(all):
-    r = all[2]
-    g = all[0]
-    p = all[1]
-    b = all[3]
-    y = all[4]
-    total = r + g + b + y + p
-    return g/total 
+        for j in range(i+1, len(totallist)):
+            if totallist[j] > highestscore and totallist not in sortedlist:
+                highestscore = totallist[j]
+                highestindex = j
+                sortedlist.append(totallist[highestindex])
+    return sortedlist[0]
 
-def rocks(all):
-    r = all[2]
-    g = all[0]
-    p = all[1]
-    b = all[3]
-    y = all[4]
-    total = r + g + b + y + p
-    return (y+r)/total 
-
+        
 
 
         
