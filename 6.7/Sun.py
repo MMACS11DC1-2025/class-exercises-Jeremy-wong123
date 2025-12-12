@@ -25,7 +25,7 @@ earth_rock = 61
 
 print('Processing images... \n \n')
 tstart = time.time()
-stars = []
+stars = ['6.7/stars/sun.webp', '6.7/stars/vega.jpg']
 name = []
 for a in range(len(stars)):
     yellow = 0
@@ -53,7 +53,7 @@ for a in range(len(stars)):
             elif functions.white(r, g, b):
                 white += 1
     all = [red, orange, yellow, blue, white]
-    print(functions.startype(all))
+    print(str(functions.startype(all)) + '\n')
 
 
 

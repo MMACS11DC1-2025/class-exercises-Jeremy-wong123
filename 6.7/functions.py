@@ -26,6 +26,8 @@ def startype(all):
     total = r + o + y + b + w
     redperc, orgperc, yelperc, bluperc, whiperc = (r/total * 100), (o/total * 100), (y/total * 100), (b/total * 100), (w/total * 100)
     totallist = [redperc, orgperc, yelperc, bluperc, whiperc]
+    startyp = ['red', 'orange', 'yellow', 'blue', 'white']
+    mostcolor = []
     sortedlist = []
     for i in range(len(totallist)):
         highestscore = totallist[i]
@@ -36,7 +38,9 @@ def startype(all):
                 highestscore = totallist[j]
                 highestindex = j
                 sortedlist.append(totallist[highestindex])
-    return sortedlist[0]
+                mostcolor.append(startyp[highestindex])
+    return [sortedlist[0], mostcolor[0]]
+
 
         
 
