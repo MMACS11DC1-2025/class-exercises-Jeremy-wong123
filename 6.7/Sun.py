@@ -15,18 +15,18 @@ from PIL import Image
 import functions
 t1 = time.time()
 
-earth_green = 8
-earth_ocean = 29
-earth_rock = 61
-#Earth's values
+
+#sun's values
+#99.89% yellow
 
 
 #list of planet values
 
 print('Processing images... \n \n')
 tstart = time.time()
-stars = ['6.7/stars/sun.webp', '6.7/stars/vega.jpg']
+stars = ['6.7/stars/notsun.webp', '6.7/stars/vega.jpg', '6.7/stars/alpha_centauri_a.jpg', '6.7/stars/epilison.jpg', '6.7/stars/Mr_Chin.jpg', '6.7/stars/Naos.png', '6.7/stars/tau_ceti.webp', '6.7/stars/sirius_a.jpg', '6.7/stars/proxima_centauri.jpg', '6.7/stars/antares.avif']
 name = []
+stardata = []
 for a in range(len(stars)):
     yellow = 0
     blue = 0
@@ -37,24 +37,26 @@ for a in range(len(stars)):
     file = Image.open(stars[a])
     star = file.load()
     width, height = file.width, file.height
+    colouredPixedls = 0
     for i in range(width):
         for j in range(height):
             r = star[i,j][0]
             g = star[i,j][1]
             b = star[i,j][2]
-            if functions.yellow(r, g, b):
-                yellow += 1
-            elif functions.blue(r, g, b):
-                blue += 1
-            elif functions.red(r, g, b): 
-                red += 1
-            elif functions.orange(r, g, b):
-                orange += 1
-            elif functions.white(r, g, b):
-                white += 1
-    all = [red, orange, yellow, blue, white]
-    print(str(functions.startype(all)) + '\n')
-
+            totalred = 0
+            totalgreen = 0
+            totalblue = 0
+            # if the pixel is not black, add 1 to the colouredPixels
+            #add the rgb values into a total variable
+            #if its black it zeros 
+            if not functions.black(r, g, b):
+                totalred += r
+                totalgreen += g
+                totalblue += b
+    starclass = functions.total(totalred, totalgreen, totalblue)
+    all = [red, orange, yellow, white, blue]
+    stardata.append(functions.startype(all))
+    print(str(stardata[a]) + '\n')
 
 
 
