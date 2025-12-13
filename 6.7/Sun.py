@@ -25,7 +25,7 @@ t1 = time.time()
 print('Processing images... \n \n')
 tstart = time.time()
 stars = ['6.7/stars/notsun.webp', '6.7/stars/vega.jpg', '6.7/stars/alpha_centauri_a.jpg', '6.7/stars/epilison.jpg', '6.7/stars/Mr_Chin.jpg', '6.7/stars/Naos.png', '6.7/stars/tau_ceti.webp', '6.7/stars/sirius_a.jpg', '6.7/stars/proxima_centauri.jpg', '6.7/stars/antares.avif']
-name = []
+names = ['notsun', 'vega', 'alpha_centauri_a', 'epilison', 'Mr_Chin', 'Naos', 'tau_ceti', 'sirius_a', 'proxima_centauri', 'antares']
 stardata = []
 for a in range(len(stars)):
     yellow = 0
@@ -37,26 +37,26 @@ for a in range(len(stars)):
     file = Image.open(stars[a])
     star = file.load()
     width, height = file.width, file.height
-    colouredPixedls = 0
     for i in range(width):
         for j in range(height):
             r = star[i,j][0]
             g = star[i,j][1]
             b = star[i,j][2]
-            totalred = 0
-            totalgreen = 0
-            totalblue = 0
-            # if the pixel is not black, add 1 to the colouredPixels
-            #add the rgb values into a total variable
-            #if its black it zeros 
-            if not functions.black(r, g, b):
-                totalred += r
-                totalgreen += g
-                totalblue += b
-    starclass = functions.total(totalred, totalgreen, totalblue)
+            if functions.red(r, g, b):
+                red += 1
+            if functions.orange(r, g, b):
+                orange += 1
+            if functions.yellow(r, g, b): 
+                yellow += 1
+            if functions.blue(r, g, b):
+                blue += 1
+            if functions.white(r, g, b):
+                white += 1
+            
     all = [red, orange, yellow, white, blue]
+
     stardata.append(functions.startype(all))
-    print(str(stardata[a]) + '\n')
+    print(names[a] + str(stardata[a]) + '\n \n' )
 
 
 
