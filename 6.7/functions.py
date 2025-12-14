@@ -47,3 +47,27 @@ def startype(all):
     
 
 test = [5970, 0, 0, 76427, 501611]
+
+def starclass(x): 
+    if x == 'red':
+        return 'M', '2100k-3400k', 'About 5-9 times the boiling point of water!'
+    elif x == 'orange':
+        return 'K', '3400k-4900k', 'Around 2 times the melting point of Iron!'
+    elif x == 'yellow': 
+        return 'G', '4900k-5700k', "That's about the surface temperature of our sun!"
+    elif x == 'white':
+        return 'A-B', '72000k-30000k', "About one 66th of a Solar Corona!" 
+    elif x == 'blue':
+        return 'O', '30000k+', "3000th of a hydrogen bomb!"
+
+#Heat range of staars
+#red: 2000-3500k, M
+#orange: 3900-5300k K
+#yellow: 5000-6500k G
+#white: 10,000k-25,000k A 
+#blue: 25,000k- 50,000k O
+testcase = []
+x = ['red', 'orange' ,'yellow', 'white' , 'blue']
+for i in range(len(x)):
+    testcase.append(starclass(x[i]))
+print(testcase)

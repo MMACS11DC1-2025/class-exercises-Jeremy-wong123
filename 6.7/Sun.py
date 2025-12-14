@@ -27,6 +27,7 @@ tstart = time.time()
 stars = ['6.7/stars/notsun.webp', '6.7/stars/vega.jpg', '6.7/stars/alpha_centauri_a.jpg', '6.7/stars/epilison.jpg', '6.7/stars/Mr_Chin.jpg', '6.7/stars/Naos.png', '6.7/stars/tau_ceti.webp', '6.7/stars/sirius_a.jpg', '6.7/stars/proxima_centauri.jpg', '6.7/stars/antares.avif']
 names = ['notsun', 'vega', 'alpha_centauri_a', 'epilison', 'Mr_Chin', 'Naos', 'tau_ceti', 'sirius_a', 'proxima_centauri', 'antares']
 stardata = []
+secondstardata = []
 for a in range(len(stars)):
     yellow = 0.01
     blue = 0.01
@@ -55,9 +56,20 @@ for a in range(len(stars)):
             
     all = [red, orange, yellow, white, blue]
 
-    stardata.append(functions.startype(all))
-    print(names[a] + 'is a {} star' str(stardata[a]) + '\n \n' )
-
+    startype = functions.startype(all)
+    stardata.append(startype)
+    secondstardata.append(functions.starclass(startype[0]))
+    output =  '''
+    name:{} 
+    colour:{}
+    colour percentage: {:2.f}
+    class: {}
+    similarity to sun: {}
+    Temp: {}
+    {}
+    \n
+    '''.format(names[a], stardata[a], stardata[a+1], secondstardata[a][0], secondstardata[a][1], secondstardata[a][2])
+print(output)
 
 #Heat range of staars
 #red: 2000-3500k, M
