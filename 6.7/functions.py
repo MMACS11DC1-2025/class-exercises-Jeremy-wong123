@@ -48,6 +48,7 @@ def startype(all):
 
 test = [5970, 0, 0, 76427, 501611]
 
+
 def starclass(x): 
     if x == 'red':
         return 'M', '2100k-3400k', 'About 5-9 times the boiling point of water!'
@@ -66,8 +67,10 @@ def starclass(x):
 #yellow: 5000-6500k G
 #white: 10,000k-25,000k A 
 #blue: 25,000k- 50,000k O
+'''
 testcase = []
 x = ['red', 'orange' ,'yellow', 'white' , 'blue']
 for i in range(len(x)):
     testcase.append(starclass(x[i]))
-print(testcase)
+    print(testcase[i][2])
+'''
