@@ -1,19 +1,22 @@
 from PIL import Image 
 
 def blue(r, g, b):
-    return (b > 150 and b > r + 50 and b > g + 50)
+    return (b > 150 and g < 100 and b < 100)
 
 def red(r, g, b):
-    return (r > 150 and r > g + 50 and r > b + 50)
+    
+    return (r > 150 and g < 100 and b < 100)
 
 def yellow(r, g, b):
-    return (r > 150 and g > 150 and b < 100)
+
+    return (r > 128 and g > 128 and b < 90)
 
 def orange(r, g, b):
+
     return(r > 150 and g > 100 and g < r and b < g)
 
 def white(r, g, b):
-    return(r > 200 and g > 200 and b > 200)
+    return(r > 200 and g == r and b == r)
 
 
 

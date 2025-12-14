@@ -28,11 +28,11 @@ stars = ['6.7/stars/notsun.webp', '6.7/stars/vega.jpg', '6.7/stars/alpha_centaur
 names = ['notsun', 'vega', 'alpha_centauri_a', 'epilison', 'Mr_Chin', 'Naos', 'tau_ceti', 'sirius_a', 'proxima_centauri', 'antares']
 stardata = []
 for a in range(len(stars)):
-    yellow = 0
-    blue = 0
-    red = 0
-    orange = 0
-    white = 0
+    yellow = 0.01
+    blue = 0.01
+    red = 0.01
+    orange = 0.01
+    white = 0.01
     tstar = time.time()    
     file = Image.open(stars[a])
     star = file.load()
@@ -42,12 +42,12 @@ for a in range(len(stars)):
             r = star[i,j][0]
             g = star[i,j][1]
             b = star[i,j][2]
+            if functions.yellow(r, g, b): 
+                yellow += 1
             if functions.red(r, g, b):
                 red += 1
             if functions.orange(r, g, b):
                 orange += 1
-            if functions.yellow(r, g, b): 
-                yellow += 1
             if functions.blue(r, g, b):
                 blue += 1
             if functions.white(r, g, b):
@@ -56,9 +56,15 @@ for a in range(len(stars)):
     all = [red, orange, yellow, white, blue]
 
     stardata.append(functions.startype(all))
-    print(names[a] + str(stardata[a]) + '\n \n' )
+    print(names[a] + 'is a {} star' str(stardata[a]) + '\n \n' )
 
 
+#Heat range of staars
+#red: 2000-3500k, M
+#orange: 3900-5300k K
+#yellow: 5000-6500k G
+#white: 10,000k-25,000k A 
+#blue: 25,000k- 50,000k O
 
     
 
