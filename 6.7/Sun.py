@@ -58,6 +58,35 @@ for a in range(len(stars)):
     secondstardata.append(functions.starclass(startype[0]))
     tend = time.time()
 
+
+def ordering(stardata):
+    for i in range(len(stardata)):
+        small = stardata[i][1]
+        sma = i
+
+        for b in range(i+1, len(stardata)):
+            if stardata[j] > small:
+                small = stardata[j]
+                sma = i
+        stardata[small], stardata[i] = stardata[i], stardata[]
+    def search(all, yeah):
+        start_index = 0
+        end_index = 0
+
+        while start_index <= end_index:
+            mid = int((start_index+end_index)/2)
+            if all[mid][0] == yeah:
+                return all[mid][0]
+            elif all[mid][0] < yeah:
+                all = mid+1
+            else: 
+                all = mid-1
+        return -1
+
+
+
+
+
     output =  '''
     name:{} 
     time: {:.2f}
@@ -69,4 +98,5 @@ for a in range(len(stars)):
     {}
     \n
     '''.format(names[a], tend-tstar, stardata[a][0], stardata[a][1], 'n/a', secondstardata[a][0], secondstardata[a][1], secondstardata[a][2])
+    print(all)
     print(output)

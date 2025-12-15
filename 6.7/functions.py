@@ -74,3 +74,9 @@ for i in range(len(x)):
     testcase.append(starclass(x[i]))
     print(testcase[i][2])
 '''
+
+
+def compare(star, sun):
+    x = star
+    y = sun
+    if 
