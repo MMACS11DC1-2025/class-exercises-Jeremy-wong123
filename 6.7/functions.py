@@ -81,10 +81,10 @@ def ordering(stardata):
         sma = i
 
         for b in range(i+1, len(stardata)):
-            if stardata[j] > small:
-                small = stardata[j]
+            if stardata[b] > small:
+                small = stardata[b]
                 sma = i
-        stardata[small], stardata[i] = stardata[i], stardata[]
+        stardata[sma], stardata[i] = stardata[i], stardata[sma]
     return stardata
 
 
