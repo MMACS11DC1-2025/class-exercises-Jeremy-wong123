@@ -75,8 +75,29 @@ for i in range(len(x)):
     print(testcase[i][2])
 '''
 
+def ordering(stardata):
+    for i in range(len(stardata)):
+        small = stardata[i][1]
+        sma = i
 
-def compare(star, sun):
-    x = star
-    y = sun
-    if 
+        for b in range(i+1, len(stardata)):
+            if stardata[j] > small:
+                small = stardata[j]
+                sma = i
+        stardata[small], stardata[i] = stardata[i], stardata[]
+    return stardata
+
+
+def search(all, yeah):
+    start_index = 0
+    end_index = 0
+
+    while start_index <= end_index:
+        mid = int((start_index+end_index)/2)
+        if all[mid][0] == yeah:
+            return all[mid][0]
+        elif all[mid][0] < yeah:
+            all = mid+1
+        else: 
+            all = mid-1
+    return -1

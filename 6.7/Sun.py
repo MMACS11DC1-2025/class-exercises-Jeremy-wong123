@@ -69,6 +69,8 @@ def ordering(stardata):
                 small = stardata[j]
                 sma = i
         stardata[small], stardata[i] = stardata[i], stardata[]
+    return stardata
+
     def search(all, yeah):
         start_index = 0
         end_index = 0
