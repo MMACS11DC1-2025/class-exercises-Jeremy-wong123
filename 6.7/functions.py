@@ -88,24 +88,29 @@ def ordering(stardata):
     return stardata
 
 
-def search(all, yeah, color):
+def search(all, perc, color):
+    rank = []
     newlist = []
     for i in range(len(all)):
-        if all[i][0] == 'color':
+        if all[i][0] == color:
             newlist.append(all[i])
 
+    print(newlist)
     start_index = 0
-    end_index = 0
+    end_index = len(newlist)-1
 
     while start_index <= end_index:
         mid = int((start_index+end_index)/2)
-        if newlist[mid][0] == yeah:
-            return +
-        elif all[mid][0] < yeah:
-            all = mid+1
+        print(newlist[mid][1])
+        if newlist[mid][1] == perc:
+            rank.append(newlist[mid][1])
+        elif newlist[mid][1] < perc:
+            start_index = mid+1
         else: 
-            all = mid-1
-    return -1
+            end_index = mid-1
+
+        
+    return rank
 
 
 #Save the index to get planet name:
@@ -119,8 +124,10 @@ outsad = [('red', 57.74934400923267), ('white', 79.69808181863884),
           ('white', 51.171593553055615), ('red', 20.0), 
           ('orange', 65.31544316373126), ('red', 70.82974119361612)]
 
-print(ordering(outsad))
+yes = ordering(outsad)
 
+
+search(yes, 57.74934400923267, 'red')
 
 [('red', 99.99972740995157), 
  ('white', 95.47169811320755), 
@@ -132,3 +139,11 @@ print(ordering(outsad))
  ('orange', 52.60246875959962), 
  ('white', 51.171593553055615), 
  ('red', 20.0)]
+
+
+
+[('red', 99.99972740995157)
+('red', 80.20062632551333)
+('red', 70.82974119361612)
+('red', 57.74934400923267)
+('red', 20.0)]
