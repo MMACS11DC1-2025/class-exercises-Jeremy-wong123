@@ -99,14 +99,18 @@ def search(all, yeah, color):
 
     while start_index <= end_index:
         mid = int((start_index+end_index)/2)
-        if all[mid][0] == yeah:
-            return all[mid][0]
+        if newlist[mid][0] == yeah:
+            return +
         elif all[mid][0] < yeah:
             all = mid+1
         else: 
             all = mid-1
     return -1
 
+
+#Save the index to get planet name:
+#include a rank 
+#generate a percent similarity
 
 
 outsad = [('red', 57.74934400923267), ('white', 79.69808181863884), 
