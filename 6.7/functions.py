@@ -77,18 +77,23 @@ for i in range(len(x)):
 
 def ordering(stardata):
     for i in range(len(stardata)):
-        small = stardata[i][1]
+        small = stardata[i]
         sma = i
 
         for b in range(i+1, len(stardata)):
-            if stardata[b][1] > small:
+            if stardata[b][1] > small[1]:
                 small = stardata[b]
-                sma = i
+                sma = b
         stardata[sma], stardata[i] = stardata[i], stardata[sma]
     return stardata
 
 
-def search(all, yeah):
+def search(all, yeah, color):
+    newlist = []
+    for i in range(len(all)):
+        if all[i][0] == 'color':
+            newlist.append(all[i])
+
     start_index = 0
     end_index = 0
 
@@ -101,3 +106,25 @@ def search(all, yeah):
         else: 
             all = mid-1
     return -1
+
+
+
+outsad = [('red', 57.74934400923267), ('white', 79.69808181863884), 
+          ('orange', 52.60246875959962), ('red', 80.20062632551333), 
+          ('red', 99.99972740995157), ('white', 95.47169811320755), 
+          ('white', 51.171593553055615), ('red', 20.0), 
+          ('orange', 65.31544316373126), ('red', 70.82974119361612)]
+
+print(ordering(outsad))
+
+
+[('red', 99.99972740995157), 
+ ('white', 95.47169811320755), 
+ ('red', 80.20062632551333), 
+ ('white', 79.69808181863884), 
+ ('red', 70.82974119361612), 
+ ('orange', 65.31544316373126), 
+ ('red', 57.74934400923267), 
+ ('orange', 52.60246875959962), 
+ ('white', 51.171593553055615), 
+ ('red', 20.0)]

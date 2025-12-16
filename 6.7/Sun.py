@@ -58,4 +58,4 @@ for a in range(len(stars)):
     secondstardata.append(functions.starclass(startype[0]))
     tend = time.time()
 
-print(functions.ordering(stardata))
+print(stardata)
