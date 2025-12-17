@@ -21,3 +21,5 @@ for x in range(width):
             xy = (x, y)
         file.putpixel(xy, newp) 
 file.save("output.png", "png")
+
+'''https://www.programiz.com/online-compiler/3WaysSDQU3rgW'''

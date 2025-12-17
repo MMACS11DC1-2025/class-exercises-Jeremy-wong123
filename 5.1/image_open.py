@@ -8,27 +8,27 @@ w = image_output.width
 h = image_output.height
 
 for i in range(w):
-    for b in range(h):
-        r = image_green[i, b][0]
-        g = image_green[i, b][1]
-        bl = image_green[i, b][2]
-            
-        if image.is_green(r, g, bl):
-            beach_colour = image_beach[i, b]
-            xy = (i, b)
+    for j in range(h):
+        r = image_green[i, j][0]
+        g = image_green[i, j][1]
+        b = image_green[i, j][2]
+
+        if image.is_green(r, g, b):
+            beach_colour = image_beach[i, j]
+            xy = (i, j)
             image_output.putpixel(xy, beach_colour) 
 image_output.save("output.png", "png")
         
         
-'''
+'''  c
 for i in range(w):
-    for b in range(h):
-        r = image_green[i,b][0]
-        g = image_green[i,b][1]
-        b = image_green[i,b][2]
+    for j in range(h):
+        r = image_green[i, j][0]
+        g = image_green[i, j][1]
+        b = image_green[i, j][2]
         if image.is_green(r, g, b):
-        beachcolor = image_beach[i, b]
-        xy = (i, b)
+            beachcolor = image_beach[i, j]
+            xy = (i, j)
         image_output.putpixel(xy, beach _colour)
     image_output.save("output.png", "png")
 
@@ -63,3 +63,5 @@ for x in range(width):
         file.putpixel(xy, newp) 
 file.save("output.png", "png")
 '''
+
+'''https://www.programiz.com/online-compiler/15r0zDn3EVkee'''
