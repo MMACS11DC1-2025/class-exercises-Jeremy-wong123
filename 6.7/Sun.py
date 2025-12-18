@@ -3,7 +3,7 @@ import time
 t0 = time.time()
 print('Beginning program... \n \n')
 from PIL import Image
-import functions
+import sunfunctions
 t1 = time.time()
 
 
@@ -28,21 +28,21 @@ for a in range(len(stars)):
             r = star[i,j][0]
             g = star[i,j][1]
             b = star[i,j][2]
-            if functions.yellow(r, g, b): 
+            if sunfunctions.yellow(r, g, b): 
                 yellow += 1
-            if functions.red(r, g, b):
+            if sunfunctions.red(r, g, b):
                 red += 1
-            if functions.orange(r, g, b):
+            if sunfunctions.orange(r, g, b):
                 orange += 1
-            if functions.blue(r, g, b):
+            if sunfunctions.blue(r, g, b):
                 blue += 1
-            if functions.white(r, g, b):
+            if sunfunctions.white(r, g, b):
                 white += 1
     all = [red, orange, yellow, white, blue]
 
-    startype = functions.startype(all)
+    startype = sunfunctions.startype(all)
     stardata.append(startype)
-    secondstardata.append(functions.starclass(startype[0]))
+    secondstardata.append(sunfunctions.starclass(startype[0]))
     tend = time.time()
     output =  '''
     name:{} 
