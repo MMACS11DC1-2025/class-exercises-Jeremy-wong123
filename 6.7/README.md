@@ -1,3 +1,7 @@
+My program:
+I plan to make a program that ooks at pictures of stars and then generates a table of data for each star depending on the colour of the star. I am able to determine this with good knowledge of the stars and the HR diagram(Red stars are colder and blue stars are hottest). Therefore based on finding the colour majority of each star I can determine what type of star it is and then identify it's aproximate temperature and type.
+
+
 1. 
 I will use a nested for loop to iterate over the entire image checking if it's either yellow, red, orange, white or blue recording a total ammount of each pixel in a list called 'all'. I will then nest the nest forloop in a for loop that will run 10 times to iterate over 10 different images
 
@@ -8,8 +12,31 @@ Then, using a helper function, I will use the list for each star and calculate t
 Now, I plan to display all the data and information in a stat-chart like format with string formating to insert different values of strings and numbers into the output. I plan to include the name, time, heat, star type, color & similairity to the sun as well as a fun comment for each star type.
 
 4.
-To find stars similaR to the sun, I will take the sun's values and record them, then using binary search & selection sort on the list 'stardata' After using selection sort to sort the list of tuples on the scale(red, orang, yellow, white, blue) and from least to greatest, I plan to find stars with most similairty to the sun based on colour and percentage as binary search can be used to find a specific quality but only on sorted lists
+To find stars similar to the sun, I will take the sun's values and record them, then using binary search, linear search and selection sort on the list 'stardata'. First I wil use linear search on the list to find tuples with the value 'red' adn put them into a list. Then using selection sort to sort the list of tuples and from least to greatest, I plan to find stars with most similairty to the sun based on colour and percentage as binary search can be used to find a specific quality but only on sorted lists
+
 
 A major challenge was trying to get the quality detector to detect the composition of different stars accurately. This was really difficult as I had to try and figure out why some real life yellow stars would appear as red stars in my program as well as ways I could fix it and make it more real-life based. I had to try to keep the colour indicators accurate while also allowing them to have range to be able  to detect the desired colours easier. I also had to try to use if statments instead of elif because I didn't want red indicators to overlap with yellow and orange indicators and vice versa. This problem is still not yet solved.
 
-code profile
+
+
+
+
+- [ ] Testing and robustness: include a section in your README describing testing done to ensure each of the tasks works as intended (1 pt)
+- [ ] Performance analysis: include a section in your README describing your code profiling: give an example of the report and discuss what parts of the program take the longest
+
+
+
+
+PLAN:
+    Work on making the code not bug
+        -work on the colour indicators(in 2nd block)
+        -if possible, include the comparison to the sun(in fit/ 2ndblock)
+
+    After completeing the code successfully check the criteria for these qualities and ask for questions to help them:
+
+
+
+    RIGHT NOW(1st block, study for the test)
+        
+
+    
