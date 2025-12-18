@@ -21,6 +21,9 @@ A major challenge was trying to get the quality detector to detect the compositi
 
 
 
+
+
+
 - [ ] Testing and robustness: include a section in your README describing testing done to ensure each of the tasks works as intended (1 pt)
 - [ ] Performance analysis: include a section in your README describing your code profiling: give an example of the report and discuss what parts of the program take the longest
 

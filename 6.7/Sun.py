@@ -46,12 +46,12 @@ for a in range(len(stars)):
     tend = time.time()
     output =  '''
     name:{} 
-    time: {:.2f}
+    time: {:.3f}s
     colour: {}
-    colour percentage: {:.2f}
-    class: {}
+    colour percentage: {:.3f}%
+    star type:{}
     Temp: {}
     {}
     \n
-    '''.format(names[a], tend-tstar, stardata[a][0], stardata[a][0], secondstardata[a][0], secondstardata[a][1], secondstardata[a][2])
-print(output)
+    '''.format(names[a], tend-tstar, stardata[a][0], stardata[a][1], secondstardata[a][0], secondstardata[a][1], secondstardata[a][2])
+    print(output)

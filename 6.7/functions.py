@@ -131,6 +131,7 @@ yes = ordering(outsad)
 redlist = search(yes, 'red')
 redsort = sort(redlist)
 redrank = binary_search(redsort, 80.20062632551333)
+
 print(redlist)
 print(redsort)
 print(redrank)
