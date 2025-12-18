@@ -122,7 +122,7 @@ def binary_search(newlist, query):
         else: 
             end_index = mid-1
     return rank
-
+"""
 outsad = [('red', 57.74934400923267), ('white', 79.69808181863884), ('orange', 52.60246875959962), ('red', 80.20062632551333), ('red', 99.99972740995157), ('white', 95.47169811320755), ('white', 51.171593553055615), ('red', 20.0), ('orange', 65.31544316373126), ('red', 70.82974119361612)]
 
 yes = ordering(outsad)
@@ -135,3 +135,4 @@ redrank = binary_search(redsort, 80.20062632551333)
 print(redlist)
 print(redsort)
 print(redrank)
+"""
