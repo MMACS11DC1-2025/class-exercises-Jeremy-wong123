@@ -1,23 +1,10 @@
-'''
-PROJECT IDEAS
 
-1. A program that analyzes a set of planets
-    - Analyzes and compares it to Earth
-    - Judges based on color(blue = ocean, white= clouds, green/red/yellow = land)
-    - Uses a breef description of the planet
-        (if the planet is classified as a gas giant land identification is exempt)
-    -outputs a ranking of the 10 planets including a score out of 5
-'''
 import time
 t0 = time.time()
 print('Beginning program... \n \n')
 from PIL import Image
 import functions
 t1 = time.time()
-
-
-#sun's values
-#99.89% yellow
 
 
 print('Processing images... \n \n')
@@ -57,5 +44,14 @@ for a in range(len(stars)):
     stardata.append(startype)
     secondstardata.append(functions.starclass(startype[0]))
     tend = time.time()
-
-print(stardata)
+    output =  '''
+    name:{} 
+    time: {:.2f}
+    colour: {}
+    colour percentage: {:.2f}
+    class: {}
+    Temp: {}
+    {}
+    \n
+    '''.format(names[a], tend-tstar, stardata[a][0], stardata[a][0], secondstardata[a][0], secondstardata[a][1], secondstardata[a][2])
+print(output)

@@ -88,62 +88,38 @@ def ordering(stardata):
     return stardata
 
 
-def search(all, perc, color):
-    rank = []
+def search(all, color):
     newlist = []
     for i in range(len(all)):
         if all[i][0] == color:
             newlist.append(all[i])
+    return newlist
 
+def sort(all):
+    for i in range(len(all)):
+        small = all[i][1]
+        sma = i 
+        for x in range(i+1, len(all)):
+            if all[x][1] < small:
+                small = all[x][1]
+                sma = x
+        all[sma], all[i] = all[i], all[sma]
+    return all
+
+
+def binary_search(newlist, query):
+    rank = []
     print(newlist)
     start_index = 0
     end_index = len(newlist)-1
 
     while start_index <= end_index:
         mid = int((start_index+end_index)/2)
-        print(newlist[mid][1])
-        if newlist[mid][1] == perc:
+        if newlist[mid][1] == query:
             rank.append(newlist[mid][1])
-        elif newlist[mid][1] < perc:
+        elif newlist[mid][1] < query:
             start_index = mid+1
         else: 
             end_index = mid-1
-
-        
     return rank
 
-
-#Save the index to get planet name:
-#include a rank 
-#generate a percent similarity
-
-
-outsad = [('red', 57.74934400923267), ('white', 79.69808181863884), 
-          ('orange', 52.60246875959962), ('red', 80.20062632551333), 
-          ('red', 99.99972740995157), ('white', 95.47169811320755), 
-          ('white', 51.171593553055615), ('red', 20.0), 
-          ('orange', 65.31544316373126), ('red', 70.82974119361612)]
-
-yes = ordering(outsad)
-
-
-search(yes, 57.74934400923267, 'red')
-
-[('red', 99.99972740995157), 
- ('white', 95.47169811320755), 
- ('red', 80.20062632551333), 
- ('white', 79.69808181863884), 
- ('red', 70.82974119361612), 
- ('orange', 65.31544316373126), 
- ('red', 57.74934400923267), 
- ('orange', 52.60246875959962), 
- ('white', 51.171593553055615), 
- ('red', 20.0)]
-
-
-
-[('red', 99.99972740995157)
-('red', 80.20062632551333)
-('red', 70.82974119361612)
-('red', 57.74934400923267)
-('red', 20.0)]
