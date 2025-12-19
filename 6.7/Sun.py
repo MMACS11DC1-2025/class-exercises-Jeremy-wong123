@@ -10,7 +10,7 @@
 import time
 t0 = time.time()
 print('Beginning program... \n \n')
-from PIL import Image
+# from PIL import Image
 import sunfunctions
 t1 = time.time()
 print('Processing images... \n \n')

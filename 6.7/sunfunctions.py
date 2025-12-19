@@ -1,4 +1,4 @@
-from PIL import Image 
+# from PIL import Image 
 
 #list of colour indicators
     #currently blue and yellow don't seem to work very well as stars 
@@ -83,17 +83,21 @@ for i in range(len(x)):
     print(testcase[i][2])
 '''
 
+def similar(base, target):
+    return abs(target-base)
 
 #use linear search to find star values with the desired colour 
-def search(all, color):
+def search(all, color, names):
     newlist = []
+    constel = []
     for i in range(len(all)):
         if all[i][0] == color:
             newlist.append(all[i])
-    return newlist
+            constel.append(names[i])
+    return newlist, constel
 
 #use selection sort first to organize the data from least to highest so that binary search is able to run
-def sort(all):
+def sort(all, constel):
     for i in range(len(all)):
         small = all[i][1]
         sma = i 
@@ -102,38 +106,39 @@ def sort(all):
                 small = all[x][1]
                 sma = x
         all[sma], all[i] = all[i], all[sma]
-    return all
+        constel[sma], constel[i] = constel[i], constel[sma]
+
+    return all, constel
 
 #Use binary search to find star values similar to our sun
-def binary_search(newlist, query):
+def binary_search(newlist, query, names, place):
+    stars = []
+    for i in range(len(names)):
+        stars.append(similar(newlist[i][1], query))
     rank = []
     print(newlist)
     start_index = 0
     end_index = len(newlist)-1
+    cap = len(names)
 
-    while start_index <= end_index:
+    while start_index < end_index and len(rank) < cap:
         mid = int((start_index+end_index)/2)
-        if newlist[mid][1] == query:
-            rank.append(newlist[mid][1])
+        if newlist[mid][1] :
+            rank.append(names[mid])
         elif newlist[mid][1] < query:
             start_index = mid+1
         else: 
             end_index = mid-1
-    return rank
+    return rank, rank[place]
 
 
 
-'''
+names = ['notsun', 'vega', 'alpha_centauri_a', 'epilison', 'Mr_Chin', 'Naos', 'tau_ceti', 'sirius_a', 'proxima_centauri', 'antares']
 outsad = [('red', 57.74934400923267), ('white', 79.69808181863884), ('orange', 52.60246875959962), ('red', 80.20062632551333), ('red', 99.99972740995157), ('white', 95.47169811320755), ('white', 51.171593553055615), ('red', 20.0), ('orange', 65.31544316373126), ('red', 70.82974119361612)]
 
-yes = ordering(outsad)
+redlist = search(outsad, 'red', names)
+redsort = sort(redlist[0], redlist[1])
+redrank = binary_search(redsort[0], 79.69808181863884, redsort[1], 2)
 
-
-redlist = search(yes, 'red')
-redsort = sort(redlist)
-redrank = binary_search(redsort, 80.20062632551333)
-
-print(redlist)
-print(redsort)
+#NOTWORK
 print(redrank)
-'''
