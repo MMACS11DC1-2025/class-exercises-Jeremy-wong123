@@ -82,35 +82,3 @@ for i in range(len(x)):
     testcase.append(starclass(x[i]))
     print(testcase[i][2])
 '''
-
-def sort(outsad):
-    for i in range(len(outsad)):
-        small = outsad[i][1]
-        index = i
-        for j in range(i+1, len(outsad)):
-            if outsad[j][1] < small:
-                small = outsad[j][1]
-                index = j
-        outsad[index], outsad[i] = outsad[i], outsad[index]
-    return outsad
-
-def color_ex(outsad, x):
-    star = 0
-    end = len(outsad)-1
-    while star <= end:
-        mid = int((star + end)/2) 
-        print(mid)
-        if outsad[mid][1] == x:
-            return names[mid], mid
-        elif outsad[mid][1] < x:
-            star = mid + 1
-        else:
-            star = mid - 1
-    return -1
-names = ['notsun', 'vega', 'alpha_centauri_a', 'epilison', 'Mr_Chin', 'Naos', 'tau_ceti', 'sirius_a', 'proxima_centauri', 'antares']
-outsad = [('red', 57.74934400923267), ('white', 79.69808181863884), ('orange', 52.60246875959962), ('red', 80.20062632551333), ('red', 99.99972740995157), ('white', 95.47169811320755), ('white', 51.171593553055615), ('red', 20.0), ('orange', 65.31544316373126), ('red', 70.82974119361612)]
-
-
-yes = sort(outsad)
-print(yes)
-print(color_ex(yes, 57.74934400923267))
