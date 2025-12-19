@@ -84,22 +84,18 @@ for i in range(len(x)):
 '''
 
 def similar(base, target):
+    print(target)
+    print(base)
     return abs(target-base)
 
-#use linear search to find star values with the desired colour 
-def search(all, color, names):
-    newlist = []
-    constel = []
-    for i in range(len(all)):
-        if all[i][0] == color:
-            newlist.append(all[i])
-            constel.append(names[i])
-    return newlist, constel
+#use linear search to find star values with the desired colour
+#Ex: ([('red', 57.74934400923267), ('red', 80.20062632551333), ('red', 99.99972740995157), ('red', 20.0), ('red', 70.82974119361612)], 
+# ['notsun', 'epilison', 'Mr_Chin', 'sirius_a', 'antares']) 
 
 #use selection sort first to organize the data from least to highest so that binary search is able to run
 def sort(all, constel):
     for i in range(len(all)):
-        small = all[i][1]
+        small = all[i]
         sma = i 
         for x in range(i+1, len(all)):
             if all[x][1] < small:
@@ -111,24 +107,20 @@ def sort(all, constel):
     return all, constel
 
 #Use binary search to find star values similar to our sun
-def binary_search(newlist, query, names, place):
-    stars = []
-    for i in range(len(names)):
-        stars.append(similar(newlist[i][1], query))
-    rank = []
-    print(newlist)
+def binary_search(newlist, x, set):
     start_index = 0
     end_index = len(newlist)-1
-    cap = len(names)
-
-    while start_index < end_index and len(rank) < cap:
+    index = 0
+    while start_index < end_index :
+        index += 1
         mid = int((start_index+end_index)/2)
-        if newlist[mid][1] :
-            rank.append(names[mid])
-        elif newlist[mid][1] < query:
+        if index == x:
+            return newlist[mid]
+        elif index < x:
             start_index = mid+1
         else: 
-            end_index = mid-1
+            star_index = mid-1
+    print(rank, rank[place])
     return rank, rank[place]
 
 
@@ -136,9 +128,7 @@ def binary_search(newlist, query, names, place):
 names = ['notsun', 'vega', 'alpha_centauri_a', 'epilison', 'Mr_Chin', 'Naos', 'tau_ceti', 'sirius_a', 'proxima_centauri', 'antares']
 outsad = [('red', 57.74934400923267), ('white', 79.69808181863884), ('orange', 52.60246875959962), ('red', 80.20062632551333), ('red', 99.99972740995157), ('white', 95.47169811320755), ('white', 51.171593553055615), ('red', 20.0), ('orange', 65.31544316373126), ('red', 70.82974119361612)]
 
-redlist = search(outsad, 'red', names)
-redsort = sort(redlist[0], redlist[1])
-redrank = binary_search(redsort[0], 79.69808181863884, redsort[1], 2)
 
-#NOTWORK
-print(redrank)
+searched = search(outsad, 'red', names)
+con = sort(searched[0], searched[1])
+print(binary_search(con[0]))
