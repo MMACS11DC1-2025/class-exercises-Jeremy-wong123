@@ -99,6 +99,7 @@ def color_ex(outsad, x):
     end = len(outsad)-1
     while star <= end:
         mid = int((star + end)/2) 
+        print(mid)
         if outsad[mid][1] == x:
             return names[mid], mid
         elif outsad[mid][1] < x:
@@ -110,5 +111,6 @@ names = ['notsun', 'vega', 'alpha_centauri_a', 'epilison', 'Mr_Chin', 'Naos', 't
 outsad = [('red', 57.74934400923267), ('white', 79.69808181863884), ('orange', 52.60246875959962), ('red', 80.20062632551333), ('red', 99.99972740995157), ('white', 95.47169811320755), ('white', 51.171593553055615), ('red', 20.0), ('orange', 65.31544316373126), ('red', 70.82974119361612)]
 
 
-yes = sort(outsad, names)
-print(color_ex(yes[0], 57.74934400923267))
+yes = sort(outsad)
+print(yes)
+print(color_ex(yes, 57.74934400923267))
