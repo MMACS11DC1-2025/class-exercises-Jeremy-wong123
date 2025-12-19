@@ -83,52 +83,34 @@ for i in range(len(x)):
     print(testcase[i][2])
 '''
 
-def similar(base, target):
-    print(target)
-    print(base)
-    return abs(target-base)
 
-#use linear search to find star values with the desired colour
-#Ex: ([('red', 57.74934400923267), ('red', 80.20062632551333), ('red', 99.99972740995157), ('red', 20.0), ('red', 70.82974119361612)], 
-# ['notsun', 'epilison', 'Mr_Chin', 'sirius_a', 'antares']) 
-
-#use selection sort first to organize the data from least to highest so that binary search is able to run
-def sort(all, constel):
-    for i in range(len(all)):
-        small = all[i]
-        sma = i 
-        for x in range(i+1, len(all)):
-            if all[x][1] < small:
-                small = all[x][1]
-                sma = x
-        all[sma], all[i] = all[i], all[sma]
-        constel[sma], constel[i] = constel[i], constel[sma]
-
-    return all, constel
-
-#Use binary search to find star values similar to our sun
-def binary_search(newlist, x, set):
-    start_index = 0
-    end_index = len(newlist)-1
-    index = 0
-    while start_index < end_index :
-        index += 1
-        mid = int((start_index+end_index)/2)
-        if index == x:
-            return newlist[mid]
-        elif index < x:
-            start_index = mid+1
-        else: 
-            star_index = mid-1
-    print(rank, rank[place])
-    return rank, rank[place]
-
-
-
+def color_ex(outsad, x):
+    pal = ['red', 'orange' ,'yellow', 'white' , 'blue']
+    for i in range(len(outsad)):
+        if outsad[i][0] == 'red':
+            yes = 1
+        elif outsad[i][0] == 'orange':
+            yes = 2
+        elif outsad[i][0] == 'yellow':
+            yes = 3
+        elif outsad[i][0] == 'white':
+            yes = 4
+        elif outsad[i][0] == 'blue':
+            outsad[i][0] = 5
+    star = 0
+    end = len(outsad)-1
+    while star <= end:
+        mid = int((star + end)/2) 
+        if outsad[mid][0] == x:
+            return mid
+        elif outsad[mid][0] < x:
+            star = mid + 1
+        else:
+            star = mid - 1
+    return -1
 names = ['notsun', 'vega', 'alpha_centauri_a', 'epilison', 'Mr_Chin', 'Naos', 'tau_ceti', 'sirius_a', 'proxima_centauri', 'antares']
 outsad = [('red', 57.74934400923267), ('white', 79.69808181863884), ('orange', 52.60246875959962), ('red', 80.20062632551333), ('red', 99.99972740995157), ('white', 95.47169811320755), ('white', 51.171593553055615), ('red', 20.0), ('orange', 65.31544316373126), ('red', 70.82974119361612)]
 
 
-searched = search(outsad, 'red', names)
-con = sort(searched[0], searched[1])
-print(binary_search(con[0]))
+
+print(color_ex(outsad, 1))
