@@ -1,5 +1,8 @@
 from PIL import Image 
 
+#list of colour indicators
+    #currently blue and yellow don't seem to work very well as stars 
+    #that look blue and yellow are called otherwise by the program
 def blue(r, g, b):
     return (b > 150 and g < 100 and b < 100)
 
@@ -22,7 +25,10 @@ def white(r, g, b):
 
 all = [red, orange, yellow, white, blue]
 
-#selection sort function
+#selection sort combined with a percentage generator. 
+#gives variables to each list and divides it by the 
+#total number of coloured pixels creating a percentage for each color 
+#Uses selection sort to find the highest color composition in the list
 def startype(all):
     r = all[0]
     o = all[1]
@@ -47,8 +53,9 @@ def startype(all):
     
 
 test = [5970, 0, 0, 76427, 501611]
+#temporate testcase for the startype function
 
-
+#function to generate additional data based on star-color 
 def starclass(x): 
     if x == 'red':
         return 'M', '2100k-3400k', 'About 5-9 times the boiling point of water!'
@@ -67,6 +74,7 @@ def starclass(x):
 #yellow: 5000-6500k G
 #white: 10,000k-25,000k A 
 #blue: 25,000k- 50,000k O
+
 '''
 testcase = []
 x = ['red', 'orange' ,'yellow', 'white' , 'blue']
@@ -75,19 +83,8 @@ for i in range(len(x)):
     print(testcase[i][2])
 '''
 
-def ordering(stardata):
-    for i in range(len(stardata)):
-        small = stardata[i]
-        sma = i
 
-        for b in range(i+1, len(stardata)):
-            if stardata[b][1] > small[1]:
-                small = stardata[b]
-                sma = b
-        stardata[sma], stardata[i] = stardata[i], stardata[sma]
-    return stardata
-
-
+#use linear search to find star values with the desired colour 
 def search(all, color):
     newlist = []
     for i in range(len(all)):
@@ -95,6 +92,7 @@ def search(all, color):
             newlist.append(all[i])
     return newlist
 
+#use selection sort first to organize the data from least to highest so that binary search is able to run
 def sort(all):
     for i in range(len(all)):
         small = all[i][1]
@@ -106,7 +104,7 @@ def sort(all):
         all[sma], all[i] = all[i], all[sma]
     return all
 
-
+#Use binary search to find star values similar to our sun
 def binary_search(newlist, query):
     rank = []
     print(newlist)
@@ -122,7 +120,10 @@ def binary_search(newlist, query):
         else: 
             end_index = mid-1
     return rank
-"""
+
+
+
+'''
 outsad = [('red', 57.74934400923267), ('white', 79.69808181863884), ('orange', 52.60246875959962), ('red', 80.20062632551333), ('red', 99.99972740995157), ('white', 95.47169811320755), ('white', 51.171593553055615), ('red', 20.0), ('orange', 65.31544316373126), ('red', 70.82974119361612)]
 
 yes = ordering(outsad)
@@ -135,4 +136,4 @@ redrank = binary_search(redsort, 80.20062632551333)
 print(redlist)
 print(redsort)
 print(redrank)
-"""
+'''

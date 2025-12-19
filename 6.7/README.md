@@ -21,25 +21,17 @@ A major challenge was trying to get the quality detector to detect the compositi
 
 
 
-
-
-
-- [ ] Testing and robustness: include a section in your README describing testing done to ensure each of the tasks works as intended (1 pt)
-- [ ] Performance analysis: include a section in your README describing your code profiling: give an example of the report and discuss what parts of the program take the longest
-
-
-
-
-PLAN:
-    Work on making the code not bug
-        -work on the colour indicators(in 2nd block)
-        -if possible, include the comparison to the sun(in fit/ 2ndblock)
-
-    After completeing the code successfully check the criteria for these qualities and ask for questions to help them:
-
-
-
-    RIGHT NOW(1st block, study for the test)
-        
-
+Use friday fit as a last ditch chance to hand in the assignment :(  
+    -work on solving: 
+        -color indicators
+        -implementing binary search for the star comparison
+    -at home or may not need MR.chin
+        -Write about test cases for my program    
+        -Write about perfromance analysis (optimizing my code)
     
+
+-short questions about criteria:
+    - [ ] Code quality: Clean, readable structure (2 pts)
+    - [ ] Efficiency: Evidence of thinking about algorithmic complexity throughout the code (2 pts)
+    - [ ] The program handles potential errors and edge cases effectively (2 pts)
+    - [ ] Feature detection uses a more advanced process, such as pre-processing the image, using multiple pixels, or using statistical approaches to detect features (4 points)
