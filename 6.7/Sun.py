@@ -34,7 +34,7 @@ tstart = time.time()
         [10123, 6767, 414141, 0.01, 0.01]
     -for loop will iterate this nested for loop 10 times with the 10 different images
 '''
-stars = ['6.7/stars/notsun.webp', '6.7/stars/vega.jpg', '6.7/stars/alpha_centauri_a.jpg', '6.7/stars/epilison.jpg', '6.7/stars/Mr_Chin.jpg', '6.7/stars/Naos.png', '6.7/stars/tau_ceti.webp', '6.7/stars/sirius_a.jpg', '6.7/stars/proxima_centauri.jpg', '6.7/stars/antares.avif']
+stars = ['6.7/stars/notsun.webp', '6.7/stars/vega.jpg', '6.7/stars/alpha_centauri_a.jpg', '6.7/stars/epilison.jpg', '6.7/stars/Mr_Chin.jpg', '6.7/stars/Naos.png', '6.7/stars/tau_ceti.webp', '6.7/stars/sirius_A.png', '6.7/stars/proxima_centauri.jpg', '6.7/stars/antares.avif']
 names = ['notsun', 'vega', 'alpha_centauri_a', 'epilison', 'Mr_Chin', 'Naos', 'tau_ceti', 'sirius_a', 'proxima_centauri', 'antares']
 stardata = []
 secondstardata = []
@@ -55,13 +55,13 @@ for a in range(len(stars)):
             b = star[i,j][2]
             if sunfunctions.yellow(r, g, b): 
                 yellow += 1
-            if sunfunctions.red(r, g, b):
+            elif sunfunctions.red(r, g, b):
                 red += 1
-            if sunfunctions.orange(r, g, b):
+            elif sunfunctions.orange(r, g, b):
                 orange += 1
             if sunfunctions.blue(r, g, b):
                 blue += 1
-            if sunfunctions.white(r, g, b):
+            elif sunfunctions.white(r, g, b):
                 white += 1
     all = [red, orange, yellow, white, blue]
 
@@ -94,6 +94,38 @@ for a in range(len(stars)):
     star type:{}
     Temp: {}
     {}
-    \n
     '''.format(names[a], tend-tstar, stardata[a][0], stardata[a][1], secondstardata[a][0], secondstardata[a][1], secondstardata[a][2])
     print(output)
+    print('\n')
+
+'''
+    name:notsun 
+    time: 4.094s
+    colour: red
+    colour percentage: 54.868%
+    star type:M
+    Temp: 2100k-3400k
+    About 5-9 times the boiling point of water!
+'''
+
+sun_perc = 54.86
+sun_color = 'red'
+
+sun_search = sunfunctions.color_search(stardata, names, sun_color)[0]
+sun_searched_names = sunfunctions.color_search(stardata, names, sun_color)[1]
+sun_sorted = sunfunctions.star_score_sort(sun_search, sun_searched_names)[0]
+sun_sorted_names = sunfunctions.star_score_sort(sun_search, sun_searched_names)[1]
+sunindex = sunfunctions.binary_stars(sun_sorted, sun_perc)
+print('>>>----------------------------------------------------------------<<<')
+print("The star most similar to our sun is {}, it took {:.3f} to find.".format(sun_sorted_names[sunindex]))
+print('\n')
+starcolor =  input("What type of star would you like to find?(red, orange, yellow, white, blue)"))
+starperc = input(("What color percetntage is your star?"))
+
+print('\n')
+starsearch = sunfunctions.color_search(stardata, names, starcolor)
+starnames, searched = starsearch[1], starsearch[0]
+starsorted = sunfunctions.star_score_sort(searched, starnames)
+starsort, starsortednames = starsorted[0], starsorted[1]
+userindex = sunfunctions.binary_stars(starsort, starperc)
+print("The star that matches your description is {}, it took {:.3f} to find.".format(starsortednames[userindex]))
