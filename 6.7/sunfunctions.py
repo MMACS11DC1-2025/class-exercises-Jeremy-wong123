@@ -4,7 +4,7 @@
     #currently blue and yellow don't seem to work very well as stars 
     #that look blue and yellow are called otherwise by the program
 def blue(r, g, b):
-    return (b > 150 and g < 100 and b < 100)
+    return (b > 150 and g < 100 and r < 100)
 
 def red(r, g, b):
     
@@ -12,7 +12,7 @@ def red(r, g, b):
 
 def yellow(r, g, b):
 
-    return (r > 128 and g > 128 and b < 90)
+    return (r > 150 and g > 150 and b < 100)
 
 def orange(r, g, b):
 
@@ -82,3 +82,47 @@ for i in range(len(x)):
     testcase.append(starclass(x[i]))
     print(testcase[i][2])
 '''
+
+def star_score_sort(data):
+    for i in range(len(data)):
+        smallest = data[i][1]
+        index = i 
+        for x in range(i+1, len(data)):
+            if data[x][1] < smallest:
+                smallest = data[x][1]
+                index = x
+        data[index], data[i] = data[i], data[index]
+    return data
+
+def binary_stars(data, target_score):
+    """
+    Searches the sorted stardata for a target_score.
+    data format: [('blue', 98.2), ('yellow', 70.1), ...]
+    """
+    low = 0
+    high = len(data) - 1
+    close = 0.5  # This defines the "closeness." 0.5% difference counts as a match.
+
+    while low <= high:
+        mid = (low + high) // 2
+        current_score = data[mid][1]
+
+        # Check if the score is within the range
+        if abs(current_score - target_score) < close:
+            return mid
+        
+        # Since your list is sorted Highest to Lowest (Descending):
+        elif current_score < target_score:
+            low = mid + 1  # Target is larger, move toward the front
+        else:
+            low = mid - 1   # Target is smaller, move toward the back
+            
+    return -1
+
+
+sorted = star_score_sort([('red', 57.74934400923267), ('white', 79.69808181863884), ('orange', 52.60246875959962), ('red', 80.20062632551333), ('red', 99.99972740995157), ('white', 95.47169811320755), ('white', 51.171593553055615), ('red', 20.0), ('orange', 65.31544316373126), ('red', 70.82974119361612)])
+data = binary_stars(sorted, 80.20062632551333)
+
+print(sorted)
+print('\n')
+print(data)
