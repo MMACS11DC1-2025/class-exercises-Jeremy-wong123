@@ -82,8 +82,16 @@ for i in range(len(x)):
     testcase.append(starclass(x[i]))
     print(testcase[i][2])
 '''
+def color_search(data, names, color):
+    color_name = []
+    color_stars = []
+    for i in range(len(names)):
+        if data[i][0] == color:
+            color_stars.append(data[i])
+            color_name.append(names[i])
+    return color_stars, color_name
 
-def star_score_sort(data):
+def star_score_sort(data, names):
     for i in range(len(data)):
         smallest = data[i][1]
         index = i 
@@ -92,7 +100,8 @@ def star_score_sort(data):
                 smallest = data[x][1]
                 index = x
         data[index], data[i] = data[i], data[index]
-    return data
+        names[index], names[i] = names[i], names[index]
+    return data, names
 
 def binary_stars(data, target_score):
     """
@@ -100,29 +109,48 @@ def binary_stars(data, target_score):
     data format: [('blue', 98.2), ('yellow', 70.1), ...]
     """
     low = 0
-    high = len(data) - 1
-    close = 0.5  # This defines the "closeness." 0.5% difference counts as a match.
-
+    high = len(data)-1
+    posclose = 10.0  # This defines the "closeness." 0.5% difference counts as a match.
+    negclose = -10.0
     while low <= high:
-        mid = (low + high) // 2
-        current_score = data[mid][1]
-
+        mid = int((low + high) / 2)
+        difference = data[mid][1] - target_score
         # Check if the score is within the range
-        if abs(current_score - target_score) < close:
+        if negclose < difference and difference < posclose and not data[mid][1] == target_score:
             return mid
-        
         # Since your list is sorted Highest to Lowest (Descending):
-        elif current_score < target_score:
-            low = mid + 1  # Target is larger, move toward the front
+        elif difference > posclose:
+            high = mid - 1  # Target is larger, move toward the front
         else:
-            low = mid - 1   # Target is smaller, move toward the back
-            
+            low = mid + 1   # Target is smaller, move toward the back
     return -1
 
+'''
+[('red', 20.0), 
+('white', 51.171593553055615), 
+('orange', 52.60246875959962), 
+('red', 57.74934400923267), 
+('orange', 65.31544316373126), 
+('red', 70.82974119361612), 
+('white', 79.69808181863884), 
+('red', 80.20062632551333), 
+('white', 95.47169811320755), 
+('red', 99.99972740995157)]
+'''
 
-sorted = star_score_sort([('red', 57.74934400923267), ('white', 79.69808181863884), ('orange', 52.60246875959962), ('red', 80.20062632551333), ('red', 99.99972740995157), ('white', 95.47169811320755), ('white', 51.171593553055615), ('red', 20.0), ('orange', 65.31544316373126), ('red', 70.82974119361612)])
-data = binary_stars(sorted, 80.20062632551333)
+starda = [('red', 57.74934400923267), ('white', 79.69808181863884), ('orange', 52.60246875959962), ('red', 80.20062632551333), ('red', 99.99972740995157), ('white', 95.47169811320755), ('white', 51.171593553055615), ('red', 20.0), ('orange', 65.31544316373126), ('red', 70.82974119361612)]
+names = ['notsun', 'vega', 'alpha_centauri_a', 'epilison', 'Mr_Chin', 'Naos', 'tau_ceti', 'sirius_a', 'proxima_centauri', 'antares']
 
-print(sorted)
+searched = color_search(starda, names, 'red')[0]
+searched_names = color_search(starda, names, 'red')[1]
+sorted = star_score_sort(searched, searched_names)[0]
+sorted_names = star_score_sort(searched, searched_names)[1]
+data = binary_stars(sorted, 70.0)
+
+
 print('\n')
-print(data)
+
+if data == -1:
+    print('no similar stars')
+else:
+    print(sorted_names[data])
