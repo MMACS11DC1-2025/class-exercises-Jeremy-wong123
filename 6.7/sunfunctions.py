@@ -83,6 +83,8 @@ for i in range(len(x)):
     print(testcase[i][2])
 '''
 def color_search(star_tuple, names, color):
+    #finds stars with the user inputed color
+    #ex. [('red', 90.0), ('red', 50.0), ('red', 100.0), ('red', 60)]
     color_name = []
     color_stars = []
     for i in range(len(names)):
@@ -92,6 +94,8 @@ def color_search(star_tuple, names, color):
     return color_stars, color_name
 
 def star_score_sort(star_tuple, names):
+    #sorts the color-searched stars/tuples based on percentage from least to highest
+    #ex. [('red', 20.0), ('red', 30.0)...]
     for i in range(len(star_tuple)):
         smallest = star_tuple[i][1]
         index = i 
@@ -103,9 +107,11 @@ def star_score_sort(star_tuple, names):
         names[index], names[i] = names[i], names[index]
     return star_tuple, names
 
+
 def binary_stars(star_tuple, target_score):
     """
-    Searches the sorted stardata for a target_score.
+    Searches the color_searched and sorted data for a target_score(percentage).
+    
     list format: [('blue', 98.2), ('yellow', 70.1), ...]
     output: 6
     """
@@ -116,12 +122,11 @@ def binary_stars(star_tuple, target_score):
     while low <= high:
         mid = int((low + high) / 2)
         difference = star_tuple[mid][1] - target_score
-        # Check if the score is within the range
+        #check if the score is within range
         if negclose < difference and difference < posclose and not star_tuple[mid][1] == target_score:
             return mid
-        # Since your list is sorted Highest to Lowest (Descending):
         elif difference > posclose:
-            high = mid - 1  # Target is larger, move toward the front
+            high = mid - 1
         else:
-            low = mid + 1   # Target is smaller, move toward the back
+            low = mid + 1 
     return -1

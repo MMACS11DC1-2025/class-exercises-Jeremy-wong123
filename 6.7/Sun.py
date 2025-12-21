@@ -35,9 +35,11 @@ tstart = time.time()
     -for loop will iterate this nested for loop 10 times with the 10 different images
 '''
 stars = ['6.7/stars/notsun.jpg', '6.7/stars/vega.jpg', '6.7/stars/alpha_centauri_a.jpg', '6.7/stars/epilison.jpg', '6.7/stars/Mr_Chin.jpg', '6.7/stars/Naos.png', '6.7/stars/tau_ceti.webp', '6.7/stars/sirius_A.png', '6.7/stars/proxima_centauri.jpg', '6.7/stars/antares.avif']
+#two lists containing star names and their photos
 names = ['notsun', 'vega', 'alpha_centauri_a', 'epilison', 'Mr_Chin', 'Naos', 'tau_ceti', 'sirius_a', 'proxima_centauri', 'antares']
 stardata = []
 secondstardata = []
+start_process_time = time.time()
 for a in range(len(stars)):
     yellow = 0.01
     blue = 0.01
@@ -64,7 +66,6 @@ for a in range(len(stars)):
             elif sunfunctions.white(r, g, b):
                 white += 1
     all = [red, orange, yellow, white, blue]
-
 
     '''
     Will now use custom functions to generate data based on the list 'all'
@@ -98,6 +99,7 @@ for a in range(len(stars)):
     print(output)
     print('\n')
 
+end_process_time = time.time()
 '''
 -First ask the suer what color of star they would like to find.
 -Ask the user for the percent color of the star 
@@ -121,3 +123,16 @@ if userindex == -1:
     print('no similar stars')
 else:
     print("The star that matches your description is {}, it took {:.3f} to find. ".format(starsortednames[userindex], end_star_search - start_star_search))
+
+print('\n')
+print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+print('\n')
+
+time_output = '''
+>>TIME REPORT<<
+
+time taken to import modules: {:.3f}
+time taken to process stars: {:.3f}
+time taken to find desired star: {:.3f}
+'''.format(t1-t0, end_process_time - start_process_time, end_star_search-start_star_search)
+print(time_output)
