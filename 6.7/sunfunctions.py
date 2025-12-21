@@ -124,35 +124,3 @@ def binary_stars(star_tuple, target_score):
         else:
             low = mid + 1   # Target is smaller, move toward the back
     return -1
-
-'''
-[('red', 20.0), 
-('white', 51.171593553055615), 
-('orange', 52.60246875959962), 
-('red', 57.74934400923267), 
-('orange', 65.31544316373126), 
-('red', 70.82974119361612), 
-('white', 79.69808181863884), 
-('red', 80.20062632551333), 
-('white', 95.47169811320755), 
-('red', 99.99972740995157)]
-'''
-'''
-starda = [('red', 57.74934400923267), ('white', 79.69808181863884), ('orange', 52.60246875959962), ('red', 80.20062632551333), ('red', 99.99972740995157), ('white', 95.47169811320755), ('white', 51.171593553055615), ('red', 20.0), ('orange', 65.31544316373126), ('red', 70.82974119361612)]
-names = ['notsun', 'vega', 'alpha_centauri_a', 'epilison', 'Mr_Chin', 'Naos', 'tau_ceti', 'sirius_a', 'proxima_centauri', 'antares']
-
-search = color_search(starda, names, 'red')[0]
-searched_names = color_search(starda, names, 'red')[1]
-sorted = star_score_sort(search, searched_names)[0]
-sorted_names = star_score_sort(search, searched_names)[1]
-data = binary_stars(sorted, 100.0)
-
-print(search)
-print(searched_names)
-print('\n')
-
-if data == -1:
-    print('no similar stars')
-else:
-    print(sorted_names[data])
-'''
