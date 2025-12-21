@@ -107,8 +107,8 @@ for a in range(len(stars)):
 '''
 print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
 print('\n')
-starcolor =  input("What type of star would you like to find?(red, orange, yellow, white, blue)")
-starperc = float(input("What color percentage is your star?"))
+starcolor =  input("What type of star would you like to find?(red, orange, yellow, white, blue) ")
+starperc = float(input("What color percentage is your star? "))
 start_star_search = time.time()
 print('\n')
 starsearch = sunfunctions.color_search(stardata, names, starcolor)
@@ -120,4 +120,4 @@ end_star_search = time.time()
 if userindex == -1:
     print('no similar stars')
 else:
-    print("The star that matches your description is {}, it took {:.3f} to find.".format(starsortednames[userindex], end_star_search - start_star_search))
+    print("The star that matches your description is {}, it took {:.3f} to find. ".format(starsortednames[userindex], end_star_search - start_star_search))
