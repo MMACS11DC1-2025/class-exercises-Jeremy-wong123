@@ -106,11 +106,12 @@ def star_score_sort(star_tuple, names):
 def binary_stars(star_tuple, target_score):
     """
     Searches the sorted stardata for a target_score.
-    data format: [('blue', 98.2), ('yellow', 70.1), ...]
+    list format: [('blue', 98.2), ('yellow', 70.1), ...]
+    output: 6
     """
     low = 0
     high = len(star_tuple)-1
-    posclose = 10.0  # This defines the "closeness." 0.5% difference counts as a match.
+    posclose = 10.0 #These valeus are the range of difference acceptable by the function
     negclose = -10.0
     while low <= high:
         mid = int((low + high) / 2)

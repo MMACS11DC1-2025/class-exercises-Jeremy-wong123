@@ -19,4 +19,6 @@ A major challenge was trying to get the quality detector to detect the color com
 
 TESTING:
 
-    There are 3 main features of this propgram: Generating the data for each star, finding a star that closely resembles the sun and 
+    There are 2 main features of this propgram: Generating the data for each star, finding a star that closely resembles the user dscription.
+
+    If the program were to work 
