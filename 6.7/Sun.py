@@ -110,16 +110,20 @@ for a in range(len(stars)):
 
 sun_perc = 54.86
 sun_color = 'red'
-
+print('>>>----------------------------------------------------------------<<<')
 sun_search = sunfunctions.color_search(stardata, names, sun_color)[0]
 sun_searched_names = sunfunctions.color_search(stardata, names, sun_color)[1]
 sun_sorted = sunfunctions.star_score_sort(sun_search, sun_searched_names)[0]
 sun_sorted_names = sunfunctions.star_score_sort(sun_search, sun_searched_names)[1]
 sunindex = sunfunctions.binary_stars(sun_sorted, sun_perc)
-print('>>>----------------------------------------------------------------<<<')
-print("The star most similar to our sun is {}, it took {:.3f} to find.".format(sun_sorted_names[sunindex]))
+print(sunindex)
+if sunindex == -1:
+    print('no similar stars')
+else:
+    print("The star most similar to our sun is {}, it took {:.3f} to find.".format(sun_sorted_names[sunindex]))
+
 print('\n')
-starcolor =  input("What type of star would you like to find?(red, orange, yellow, white, blue)"))
+starcolor =  input("What type of star would you like to find?(red, orange, yellow, white, blue)")
 starperc = input(("What color percetntage is your star?"))
 
 print('\n')
@@ -128,4 +132,7 @@ starnames, searched = starsearch[1], starsearch[0]
 starsorted = sunfunctions.star_score_sort(searched, starnames)
 starsort, starsortednames = starsorted[0], starsorted[1]
 userindex = sunfunctions.binary_stars(starsort, starperc)
-print("The star that matches your description is {}, it took {:.3f} to find.".format(starsortednames[userindex]))
+if userindex == -1:
+    print('no similar stars')
+else:
+    print("The star that matches your description is {}, it took {:.3f} to find.".format(starsortednames[userindex]))
