@@ -95,7 +95,8 @@ for a in range(len(stars)):
     star type:{}
     Temp: {}
     {}
-    '''.format(names[a], tend-tstar, stardata[a][0], stardata[a][1], secondstardata[a][0], secondstardata[a][1], secondstardata[a][2]) 
+    raw-data: {}
+    '''.format(names[a], tend-tstar, stardata[a][0], stardata[a][1], secondstardata[a][0], secondstardata[a][1], secondstardata[a][2], all[:5]) 
     print(output)
     print('\n')
 
