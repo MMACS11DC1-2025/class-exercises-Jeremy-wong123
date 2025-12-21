@@ -82,41 +82,41 @@ for i in range(len(x)):
     testcase.append(starclass(x[i]))
     print(testcase[i][2])
 '''
-def color_search(data, names, color):
+def color_search(star_tuple, names, color):
     color_name = []
     color_stars = []
     for i in range(len(names)):
-        if data[i][0] == color:
-            color_stars.append(data[i])
+        if star_tuple[i][0] == color:
+            color_stars.append(star_tuple[i])
             color_name.append(names[i])
     return color_stars, color_name
 
-def star_score_sort(data, names):
-    for i in range(len(data)):
-        smallest = data[i][1]
+def star_score_sort(star_tuple, names):
+    for i in range(len(star_tuple)):
+        smallest = star_tuple[i][1]
         index = i 
-        for x in range(i+1, len(data)):
-            if data[x][1] < smallest:
-                smallest = data[x][1]
+        for x in range(i+1, len(star_tuple)):
+            if star_tuple[x][1] < smallest:
+                smallest = star_tuple[x][1]
                 index = x
-        data[index], data[i] = data[i], data[index]
+        star_tuple[index], star_tuple[i] = star_tuple[i], star_tuple[index]
         names[index], names[i] = names[i], names[index]
-    return data, names
+    return star_tuple, names
 
-def binary_stars(data, target_score):
+def binary_stars(star_tuple, target_score):
     """
     Searches the sorted stardata for a target_score.
     data format: [('blue', 98.2), ('yellow', 70.1), ...]
     """
     low = 0
-    high = len(data)-1
+    high = len(star_tuple)-1
     posclose = 10.0  # This defines the "closeness." 0.5% difference counts as a match.
     negclose = -10.0
     while low <= high:
         mid = int((low + high) / 2)
-        difference = data[mid][1] - target_score
+        difference = star_tuple[mid][1] - target_score
         # Check if the score is within the range
-        if negclose < difference and difference < posclose and not data[mid][1] == target_score:
+        if negclose < difference and difference < posclose and not star_tuple[mid][1] == target_score:
             return mid
         # Since your list is sorted Highest to Lowest (Descending):
         elif difference > posclose:
