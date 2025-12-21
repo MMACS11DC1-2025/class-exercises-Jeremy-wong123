@@ -1,4 +1,3 @@
-# from PIL import Image 
 
 #list of colour indicators
     #currently blue and yellow don't seem to work very well as stars 
@@ -50,10 +49,6 @@ def startype(all):
         startyp[highestindex], startyp[i] = startyp[i], startyp[highestindex]
         totallist[highestindex], totallist[i] = totallist[i], totallist[highestindex]
     return startyp[0], totallist[0]
-    
-
-test = [5970, 0, 0, 76427, 501611]
-#temporate testcase for the startype function
 
 #function to generate additional data based on star-color 
 def starclass(x): 
@@ -67,13 +62,6 @@ def starclass(x):
         return 'A-B', '72000k-30000k', "About one 66th of a Solar Corona!" 
     elif x == 'blue':
         return 'O', '30000k+', "3000th of a hydrogen bomb!"
-
-#Heat range of staars
-#red: 2000-3500k, M
-#orange: 3900-5300k K
-#yellow: 5000-6500k G
-#white: 10,000k-25,000k A 
-#blue: 25,000k- 50,000k O
 
 '''
 testcase = []
