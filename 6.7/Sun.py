@@ -99,13 +99,11 @@ for a in range(len(stars)):
     print('\n')
 
 '''
-    name:notsun 
-    time: 4.094s
-    colour: red
-    colour percentage: 54.868%
-    star type:M
-    Temp: 2100k-3400k
-    About 5-9 times the boiling point of water!
+-First ask the suer what color of star they would like to find.
+-Ask the user for the percent color of the star 
+-Use linear search ot search through 'stardata' for all the stars that match the users color
+-Use selection sort to search the tuples from lowest to highest based on percentage
+-Use binary search to find a star that is close enough to the user's description
 '''
 print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
 print('\n')
