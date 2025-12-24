@@ -8,3 +8,18 @@ exercises to include calculations, if you wish.
 Remember to design your algorithm in English first, then translate it to Python 
 code. Test as you go!
 """
+eq = int(input("first number "))
+op = input("operation ")
+eq2 = int(input("next number "))
+out = 0
+if( op == 'x' or op == 'X'):
+    out = out + eq * eq2
+elif(op == '/'):
+    out = out + eq / eq2
+elif(op == '+'):
+    out = out + eq + eq2
+elif(op == '-'):
+    out = out + eq - eq2
+else:
+    print("Dawg what")
+print(str(out))
